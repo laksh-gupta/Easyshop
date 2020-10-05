@@ -43,34 +43,76 @@ module.exports = {
     // const { query } = req.body;
     const query = 'dabur honey';
     var sending_data = [];
-    const usersSnapshot = db.collection('users');
-    await usersSnapshot
-      .get()
-      .then((users) => {
-        users.forEach((user) => {
-          const productSnapshot = usersSnapshot
-            .doc(user.id)
-            .collection('products');
-          productSnapshot.get().then(async (products) => {
-            const data = await products.docs.filter(async (product) => {
-              // const productData = product.data();
-              return await check(product.data(), query).then((isValid) => {
-                return isValid;
-              });
-              // console.log(typeof a);
-              // return a;
-              // return await check(product.data(), query).then((d) => d);
-            });
-            console.log(data.length);
+    const users = db.collection('users');
+    const usersSnapshot = await users.get();
+    var stores = [];
+    usersSnapshot.forEach((user) => {
+      stores.push(user.data());
+    });
+    // console.log(stores);
 
-            // products.forEach(async (product) => {});
-          });
-        });
-      })
-      .catch((err) => {
-        res.send('err');
+    var filtered = stores.map((store) => {
+      var a = store.products.filter((product) => {
+        return check(product, query);
       });
+      console.log(a);
+      return {
+        name: store.name,
+        products: a,
+      };
+    });
+    console.log(filtered);
+    // Promise.all(promises).then(() => {
+    //   // var promises_ =
+    //   promises.forEach((products) => {
+    //     products.then((prods) => {
+    //       prods.docs.forEach((doc) => {
+    //         var innerPromises = [];
+    //         const productData = product.data();
+    //         promises.push(
+    //           check(productData, query).then((isValid) => {
+    //             if (isValid) {
+    //               sending_data.push(productData);
+    //             }
+    //           })
+    //         );
+    //       });
+    //     });
+    //   });
+    // });
+    // await new Promise(async (resolve, reject) => {
+    //   // const usersSnapshot = await users.get();
+    //   var promises = [];
+    //   // usersSnapshot.forEach(user => {
+
+    //   // })
+    //   usersSnapshot
+    //     .get()
+    //     .then(async (users) => {
+    //       users.forEach(async (user) => {
+    //         const productSnapshot = await usersSnapshot
+    //           .doc(user.id)
+    //           .collection('products');
+    //         await productSnapshot.get().then(async (products) => {
+    //           products.docs.forEach(async (product) => {
+    //             const productData = product.data();
+    //             promises.push(
+    //               check(productData, query).then((isValid) => {
+    //                 if (isValid) {
+    //                   sending_data.push(productData);
+    //                 }
+    //               })
+    //             );
+    //           });
+    //         });
+    //       });
+    //     })
+    //     .catch((err) => {
+    //       res.send('err');
+    //     });
+    //   Promise.all(promises).then(() => resolve());
+    // });
     // console.log(sending_data);
-    res.send(sending_data);
+    res.send(filtered);
   },
 };

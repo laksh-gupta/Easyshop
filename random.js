@@ -29,6 +29,14 @@ const populate = require('./trialdata.json.json');
 //   .get()
 //   .then((data) => data.forEach((da) => console.log(da.id)));
 
-populate.products.forEach((prod) =>
-  db.collection('users').doc('e065f8a8a1').collection('products').add(prod)
+// populate.products.forEach((prod) =>
+//   db.collection('users').doc('e065f8a8a1').collection('products').add(prod)
+// );
+db.collection('users').doc('e065f8a8a1').set(
+  {
+    products: populate.products,
+  },
+  {
+    merge: true,
+  }
 );

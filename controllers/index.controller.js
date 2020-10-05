@@ -2,8 +2,7 @@ const blake2b = require('blakejs').blake2bHex;
 require('dotenv').config;
 const db = require('../models/firebaseSDK').db;
 const jwt = require('jsonwebtoken');
-const { use } = require('../routes/index.route');
-
+const check = require('../helpers/check');
 module.exports = {
   login: (req, res) => {
     const { email, password } = req.body;
@@ -52,28 +51,26 @@ module.exports = {
           const productSnapshot = usersSnapshot
             .doc(user.id)
             .collection('products');
-          productSnapshot.get().then((products) => {
-            products.forEach((product) => {
-              const prodName = product.data().name.toLowerCase();
-              console.log(prodName);
-              const query_ = query.split(' ');
-              console.log(query_);
-              const data = query_.filter((word) => {
-                if (prodName.includes(word)) {
-                  return word;
-                }
+          productSnapshot.get().then(async (products) => {
+            const data = await products.docs.filter(async (product) => {
+              // const productData = product.data();
+              return await check(product.data(), query).then((isValid) => {
+                return isValid;
               });
-              console.log(data);
-              // if (data.length == query_.length) {
-              sending_data.push(product.data());
-              // }
+              // console.log(typeof a);
+              // return a;
+              // return await check(product.data(), query).then((d) => d);
             });
+            console.log(data.length);
+
+            // products.forEach(async (product) => {});
           });
         });
       })
       .catch((err) => {
         res.send('err');
       });
+    // console.log(sending_data);
     res.send(sending_data);
   },
 };

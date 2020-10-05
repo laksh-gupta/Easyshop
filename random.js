@@ -29,12 +29,17 @@ const populate = require('./trialdata.json.json');
 //   .get()
 //   .then((data) => data.forEach((da) => console.log(da.id)));
 
-// populate.products.forEach((prod) =>
-//   db.collection('users').doc('e065f8a8a1').collection('products').add(prod)
-// );
+var a = populate.products.map((prod) => {
+  prod['name'] = `${prod['name']} ${prod['quantity']}`;
+  prod['quantity'] = 100;
+  return prod;
+});
+
+console.log(a);
+
 db.collection('users').doc('e065f8a8a1').set(
   {
-    products: populate.products,
+    products: a,
   },
   {
     merge: true,

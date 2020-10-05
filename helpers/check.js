@@ -9,10 +9,5 @@ module.exports = (productData, query) => {
     }
   });
   // console.log(data);
-  if (data.length === query_.length) {
-    console.log('check');
-    return true;
-  } else {
-    return false;
-  }
+  return data.length === query_.length;
 };

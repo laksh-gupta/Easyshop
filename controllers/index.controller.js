@@ -40,9 +40,8 @@ module.exports = {
       });
   },
   query: async (req, res) => {
-    // const { query } = req.body;
-    const query = 'dabur honey';
-    var sending_data = [];
+    const { query } = req.body;
+    // const query = 'dabur honey';
     const users = db.collection('users');
     const usersSnapshot = await users.get();
     var stores = [];
@@ -55,13 +54,11 @@ module.exports = {
       var a = store.products.filter((product) => {
         return check(product, query);
       });
-      console.log(a);
       return {
         name: store.name,
         products: a,
       };
     });
-    console.log(filtered);
     // Promise.all(promises).then(() => {
     //   // var promises_ =
     //   promises.forEach((products) => {

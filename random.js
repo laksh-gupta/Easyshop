@@ -1,5 +1,3 @@
-const { resolve } = require('path');
-
 const db = require('./models/firebaseSDK').db;
 
 const populate = require('./trialdata.json.json');

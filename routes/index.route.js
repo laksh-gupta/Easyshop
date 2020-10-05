@@ -3,7 +3,7 @@ const decrypt_ = require('../helpers/rsaDecrypt').decrypt_;
 
 // Import Controllers Here
 const user = require('../controllers/users.controller');
-const login = require('../controllers/login.controller');
+const index = require('../controllers/index.controller');
 
 //Index Route
 router.get('/', (req, res) => {
@@ -14,6 +14,9 @@ router.get('/', (req, res) => {
 router.post('/adduser', user.addUser);
 
 //Login
-router.post('/login', decrypt_, login.login);
+router.post('/login', decrypt_, index.login);
+
+//Get store on search string
+router.post('/query', index.query);
 
 module.exports = router;

@@ -209,6 +209,14 @@ const Logged = () => {
 export default function HeaderLinks(props) {
   const { currentUser } = React.useContext(AuthContext);
   const classes = useStyles();
+  const submit = (e) => {
+    console.log(e.target.value);
+    if (e.keyCode === 13) {
+      window.location.href = `/search/?q=${e.target.value
+        .split(' ')
+        .join('+')}`;
+    }
+  };
   return (
     <List className={classes.list}>
       <ListItem className={classes.listItem}>
@@ -217,6 +225,7 @@ export default function HeaderLinks(props) {
             <SearchIcon />
           </div>
           <InputBase
+            onKeyDown={submit}
             placeholder="Search…"
             classes={{
               root: classes.inputRoot,

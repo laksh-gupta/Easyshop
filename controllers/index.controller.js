@@ -42,6 +42,7 @@ module.exports = {
   query: async (req, res) => {
     const { query } = req.body;
     // const query = 'dabur honey';
+    console.log(query);
     const users = db.collection('users');
     const usersSnapshot = await users.get();
     var stores = [];

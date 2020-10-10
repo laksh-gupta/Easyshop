@@ -16,10 +16,12 @@ export default function Cart(props) {
   const { cart, updateCart } = React.useContext(CartContext);
 
   const remove = (e) => {
-    const name = e.target.id;
+    e.preventDefault();
+    const { name } = e.target.elements;
     const cart_ = cart.filter((item) => {
-      return item.name !== name;
+      return item.name !== name.value;
     });
+    console.log(cart_);
     updateCart(cart_);
   };
   return (
@@ -40,16 +42,16 @@ export default function Cart(props) {
               return (
                 <TableRow>
                   <TableCell>
-                    <img src={item.image_link} />
+                    <img height="150px" width="150px" src={item.image_link} />
                   </TableCell>
                   <TableCell>{item.name}</TableCell>
                   <TableCell> {item.shop} </TableCell>
                   <TableCell> {item.price} </TableCell>
                   <TableCell>
-                    {' '}
-                    <Button id={item.name} onClick={remove}>
-                      Remove
-                    </Button>{' '}
+                    <form onSubmit={remove}>
+                      <input name="name" hidden value={item.name} />
+                      <Button type="submit">Remove</Button>
+                    </form>
                   </TableCell>
                 </TableRow>
               );

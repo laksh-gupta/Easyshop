@@ -25,7 +25,7 @@ import {
   Link as Link_,
 } from '@material-ui/core';
 // react components for routing our app without refresh
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import Typography from './../../utils/assets/jss/material-kit-react/components/typography';
 import CustomDropdown from './../../utils/CustomDropdown/CustomDropdown';
 
@@ -190,9 +190,9 @@ const Logged = () => {
         color: 'transparent',
       }}
       dropdownList={[
-        <Link_ color="inherit" href="/admin" underline="none">
+        <Link style={{ textDecoration: 'none' }} to="/admin" color="inherit">
           Admin Panel
-        </Link_>,
+        </Link>,
         <div
           onClick={async () => {
             window.localStorage.setItem('token', '');
@@ -209,6 +209,7 @@ const Logged = () => {
 
 export default function HeaderLinks(props) {
   const { currentUser } = React.useContext(AuthContext);
+  const history = useHistory();
   const classes = useStyles();
   return (
     <List className={classes.list}>
@@ -240,9 +241,14 @@ export default function HeaderLinks(props) {
       </ListItem>
 
       <ListItem className={classes.listItem}>
-        <Button href="/cart" color="transparent" className={classes.navLink}>
+        <Link
+          className={classes.navLink}
+          style={{ textDecoration: 'none' }}
+          to="/cart"
+          color="inherit"
+        >
           <ShoppingCartIcon className={classes.icons} /> Cart
-        </Button>
+        </Link>
       </ListItem>
     </List>
   );

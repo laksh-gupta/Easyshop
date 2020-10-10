@@ -1,7 +1,7 @@
 /*eslint-disable*/
 import React from 'react';
-import { AuthContext } from '../../../helper';
-import encrypt_ from '../../../../../helpers/jsonEncrypt';
+import { AuthContext } from '../helper';
+import encrypt_ from '../../../helpers/jsonEncrypt';
 import axios from 'axios';
 import Container from '@material-ui/core/Container';
 import InputBase from '@material-ui/core/InputBase';
@@ -25,11 +25,11 @@ import {
   Link as Link_,
 } from '@material-ui/core';
 // react components for routing our app without refresh
-import { Link, useHistory } from 'react-router-dom';
-import Typography from '../../../../utils/assets/jss/material-kit-react/components/typography';
-import CustomDropdown from '../../../../utils/CustomDropdown/CustomDropdown';
+import { Link } from 'react-router-dom';
+import Typography from './../../utils/assets/jss/material-kit-react/components/typography';
+import CustomDropdown from './../../utils/CustomDropdown/CustomDropdown';
 
-import styles from '../../../../utils/assets/jss/material-kit-react/components/headerLinksStyle.js';
+import styles from './../../utils/assets/jss/material-kit-react/components/headerLinksStyle.js';
 
 const useStyles = makeStyles(styles);
 const useStyles2 = makeStyles((theme) => ({
@@ -179,7 +179,6 @@ const Auth = ({ history }) => {
 };
 
 const Logged = () => {
-  const history = useHistory();
   return (
     <CustomDropdown
       left
@@ -191,7 +190,9 @@ const Logged = () => {
         color: 'transparent',
       }}
       dropdownList={[
-        <div onClick={() => history.push('/admin')}>Admin Panel</div>,
+        <Link_ color="inherit" href="/admin" underline="none">
+          Admin Panel
+        </Link_>,
         <div
           onClick={async () => {
             window.localStorage.setItem('token', '');
@@ -239,7 +240,7 @@ export default function HeaderLinks(props) {
       </ListItem>
 
       <ListItem className={classes.listItem}>
-        <Button color="transparent" target="_blank" className={classes.navLink}>
+        <Button href="/cart" color="transparent" className={classes.navLink}>
           <ShoppingCartIcon className={classes.icons} /> Cart
         </Button>
       </ListItem>

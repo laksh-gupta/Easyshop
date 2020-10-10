@@ -13,6 +13,7 @@ import Parallax from '../../utils/Parallax/Parallax.js';
 import styles from '../../utils/assets/jss/material-kit-react/views/landingPage.js';
 // Sections for this page
 import profile from '../../utils/assets/img/EasyShop.jpeg';
+import HeaderLinks from './headerLinks';
 
 const useStyles = makeStyles(styles);
 
@@ -24,13 +25,13 @@ export default function LandingPage(props) {
     classes.imgFluid
   );
 
-  const { children, headerlinks, ...rest } = props;
+  const { children, ...rest } = props;
   return (
     <div>
       <Header
         color="transparent"
         brand="EasyShop"
-        rightLinks={headerlinks}
+        rightLinks={<HeaderLinks />}
         fixed
         changeColorOnScroll={{
           height: 100,

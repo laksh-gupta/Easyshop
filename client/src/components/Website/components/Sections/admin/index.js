@@ -6,7 +6,6 @@ import { Box, Container, Grid } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 
 import LandingPage from '../../LandingPage';
-import HeaderLinks from './headerLinks';
 
 import Page from './page.js';
 import data from './data.js';
@@ -41,7 +40,7 @@ export default function AdminPanel() {
   }, []);
 
   return currentUser ? (
-    <LandingPage headerlinks={<HeaderLinks />}>
+    <LandingPage>
       <Page
         className={(classes.root, classes.mainRaised)}
         title="EasyShop - Admin"

@@ -5,7 +5,6 @@ import { Box, Container, Grid } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 
 import LandingPage from '../../LandingPage';
-import HeaderLinks from '../admin/headerLinks';
 import ProductCard from './productcard';
 import Page from './Page';
 import Loading from '../../../Loading';
@@ -74,7 +73,7 @@ export default function ShopSearch(props) {
   }, []);
   console.log(products);
   return products ? (
-    <LandingPage headerlinks={<HeaderLinks />}>
+    <LandingPage>
       <Page className={(classes.root, classes.mainRaised)} title="Search">
         <Container maxWidth={false}>
           {/* <Toolbar /> */}

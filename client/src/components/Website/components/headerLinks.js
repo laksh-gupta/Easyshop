@@ -22,14 +22,17 @@ import {
   Checkbox,
   Grid,
   Button,
-  Link as Link_,
+  TableRow,
+  TableCell,
 } from '@material-ui/core';
+import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 // react components for routing our app without refresh
 import { Link, useHistory } from 'react-router-dom';
 import Typography from './../../utils/assets/jss/material-kit-react/components/typography';
 import CustomDropdown from './../../utils/CustomDropdown/CustomDropdown';
 
 import styles from './../../utils/assets/jss/material-kit-react/components/headerLinksStyle.js';
+import CartContext from '../CartContext';
 
 const useStyles = makeStyles(styles);
 const useStyles2 = makeStyles((theme) => ({
@@ -186,7 +189,6 @@ const Logged = () => {
       hoverColor="black"
       buttonText={'Account'}
       buttonProps={{
-        className: 'classes.navLink' + ' ' + 'classes.imageDropdownButton',
         color: 'transparent',
       }}
       dropdownList={[
@@ -207,10 +209,34 @@ const Logged = () => {
   );
 };
 
+const QuickCart = (props) => {
+  return (
+    <Grid container>
+      <Grid item xs={4}>
+        {props.product.name}
+      </Grid>
+      <Grid item xs={4}>
+        {props.product.shop}
+      </Grid>
+      <Grid item xs={4}>
+        {props.product.price}
+      </Grid>
+    </Grid>
+  );
+};
+
 export default function HeaderLinks(props) {
   const { currentUser } = React.useContext(AuthContext);
+  const { cart, updateCart } = React.useContext(CartContext);
   const history = useHistory();
   const classes = useStyles();
+  const submit = (e) => {
+    console.log(e.target.value);
+    if (e.keyCode === 13) {
+      history.push(`/search/?q=${e.target.value.split(' ').join('+')}`);
+    }
+  };
+
   return (
     <List className={classes.list}>
       <ListItem className={classes.listItem}>
@@ -219,6 +245,7 @@ export default function HeaderLinks(props) {
             <SearchIcon />
           </div>
           <InputBase
+            onKeyDown={submit}
             placeholder="Search…"
             classes={{
               root: classes.inputRoot,
@@ -241,14 +268,45 @@ export default function HeaderLinks(props) {
       </ListItem>
 
       <ListItem className={classes.listItem}>
-        <Link
-          className={classes.navLink}
-          style={{ textDecoration: 'none' }}
-          to="/cart"
-          color="inherit"
-        >
-          <ShoppingCartIcon className={classes.icons} /> Cart
-        </Link>
+        <CustomDropdown
+          left
+          caret
+          hoverColor="black"
+          buttonIcon={ShoppingCartIcon}
+          buttonText="Cart"
+          buttonProps={{
+            color: 'transparent',
+          }}
+          dropdownHeader={
+            <Grid style={{ width: '20vw' }} container>
+              <Grid item xs={4}>
+                Name
+              </Grid>
+              <Grid item xs={4}>
+                Shop
+              </Grid>
+              <Grid item xs={4}>
+                Price
+              </Grid>
+            </Grid>
+          }
+          dropdownList={cart
+            .map((product) => {
+              return <QuickCart product={product} />;
+            })
+            .concat(
+              <Link to="/cart" style={{ textDecoration: 'none' }}>
+                <Grid container>
+                  <Grid item xs={6}>
+                    <Typography>View Detailed</Typography>
+                  </Grid>
+                  <Grid item xs={6}>
+                    <ArrowForwardIosIcon />
+                  </Grid>
+                </Grid>
+              </Link>
+            )}
+        />
       </ListItem>
     </List>
   );

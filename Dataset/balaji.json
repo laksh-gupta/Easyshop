@@ -120,14 +120,6 @@
       "name": "Close-Up Red Hot Toothpaste",
       "price": "20",
       "quantity": "50 gm"
-    },
-    {
-      "category": "Personal Care",
-      "description": "Shampoo",
-      "image_link": "https://d1s2zprapij148.cloudfront.net/image/cache/catalog/products/24637-200x200.jpg",
-      "name": "Dabur Vatika Shampoo",
-      "price": "175",
-      "quantity": "100 ml"
-    },
+    }
   ]
 }

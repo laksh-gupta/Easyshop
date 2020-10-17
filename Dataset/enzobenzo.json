@@ -5,7 +5,7 @@
             "description": "High quality",
             "image_link": "https://res.sastasundar.com/incom/images/product/Classmate-Plain-Notebook-33-21-cm-1525773117-10044415.jpg",
             "name": "Classmate Notebook",
-            "price": "45",
+            "price": "39",
             "quantity": "1pcs"
         },
         {
@@ -21,7 +21,7 @@
             "description": "Shampoo",
             "image_link": "https://d1s2zprapij148.cloudfront.net/image/cache/catalog/products/24637-200x200.jpg",
             "name": "Dabur Vatika Shampoo",
-            "price": "175",
+            "price": "165",
             "quantity": "100 ml"
         },
         {
@@ -34,10 +34,10 @@
         },
         {
             "category": "groceries",
-            "description": "Shampoo",
+            "description": "Glucose",
             "image_link": "https://www.bigbasket.com/media/uploads/p/l/20004286-2_6-parle-glucos-biscuits-parle-g.jpg",
             "name": "Parle G",
-            "price": "105",
+            "price": "15",
             "quantity": "20 Pcs"
         },
         {
@@ -45,7 +45,7 @@
             "description": "Groundnut Oil",
             "image_link": "https://d1s2zprapij148.cloudfront.net/image/cache/catalog/products/24237-200x200.jpg",
             "name": "Madhuri Groundnut Oil",
-            "price": "2320",
+            "price": "2300",
             "quantity": "15 ltr"
         },
         {
@@ -77,7 +77,7 @@
             "description": "Energy Drink",
             "image_link": "https://d1s2zprapij148.cloudfront.net/image/cache/catalog/products/2805_9-200x200.jpg",
             "name": "Bournvita",
-            "price": "370",
+            "price": "369",
             "quantity": "1 Kg"
         },
         {
@@ -117,7 +117,7 @@
             "description": "Butterscotch",
             "image_link": "https://5.imimg.com/data5/OW/WE/MY-30494656/amul-realmilk-ice-cream-500x500.jpg",
             "name": "Amul Icecream ",
-            "price": "25",
+            "price": "20",
             "quantity": "150 ml"
         },
         {

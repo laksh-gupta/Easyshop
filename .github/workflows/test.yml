@@ -50,4 +50,5 @@ jobs:
           git remote -v
           git remote add heroku https://git.heroku.com/easyshopindia.git
           git remote -v
+          git fetch --unshallow origin
           git push heroku master

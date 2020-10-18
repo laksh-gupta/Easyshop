@@ -46,9 +46,6 @@ jobs:
             login ${{ secrets.EMAIL }}
             password ${{ secrets.API_KEY }}
           EOF
-          git config --global user.name "Nimish Shah"
-          git config --global user.email "nimishshah2000@gmail.com"
-          git commit -am 'DeployCommit'
           echo "done"
           git remote -v
           git remote set-url origin https://git.heroku.com/easyshopindia.git

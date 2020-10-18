@@ -66,37 +66,14 @@ export default function ShopSearch(props) {
                 <TableCell>Shop</TableCell>
                 <TableCell>Price</TableCell>
               </TableRow>
+              {products.map((product) => {
+                return product.products.map((prod) => {
+                  return <ProductCard shopname={product.name} product={prod} />;
+                });
+              })}
             </TableHead>
           </Table>
         </TableContainer>
-
-        {products.map((product) => {
-          return (
-            <>
-              {product.products.map((prod) => {
-                <Grid item key={product.id}>
-                  <ProductCard product={product} />
-                </Grid>;
-              })}
-            </>
-          );
-        })}
-
-        {/* {products.map((product) => (
-          
-          return {
-            <>
-            {product.products.map((prod)=>(
-            <Grid item key={product.id} >
-            <ProductCard
-              product={product}
-            />
-          </Grid>
-          ))}
-            </>
-            }
-          
-          ))} */}
       </Grid>
     </LandingPage>
   ) : (

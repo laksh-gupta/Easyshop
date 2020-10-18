@@ -8,31 +8,21 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 
-
-const ProductCard = ({ product }) => {
-
-
-    return (
-        <TableContainer>
-            <Table>
-                <TableBody>
-                    <TableRow>
-                        <TableCell>
-                            <img height="150px" width="150px" src={product.src} />
-                        </TableCell>
-                        <TableCell>{product.image_link}</TableCell>
-                        <TableCell> {product.name} </TableCell>
-                        <TableCell> {product.price} </TableCell>
-                    </TableRow>
-
-                </TableBody>
-            </Table>
-        </TableContainer>
-    );
+const ProductCard = ({ product, shopname }) => {
+  return (
+    <TableRow>
+      <TableCell>
+        <img height="150px" width="150px" src={product.image_link} />
+      </TableCell>
+      <TableCell>{product.name}</TableCell>
+      <TableCell> {shopname} </TableCell>
+      <TableCell> {product.price} </TableCell>
+    </TableRow>
+  );
 };
 
 ProductCard.propTypes = {
-    product: PropTypes.object.isRequired,
+  product: PropTypes.object.isRequired,
 };
 
 export default ProductCard;

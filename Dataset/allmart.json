@@ -121,5 +121,26 @@
       "quantity": "20 Pcs"
     }
   ],
-  "name": "All Maart"
+  "Top products": [
+    {
+      "image_link": "https://cdn.dribbble.com/users/2833589/screenshots/7143294/media/88fca13b23cc3eeb0590f7c96f27e7e8.jpg"
+    },
+    {
+      "image_link": "https://www.nutella.com/ca/sites/nutella_ca/files/2020-08/20fer6051_nutella_madeincanada_sustainable_commitments_1400x887_en_r1_v2.jpg?t=1599150591"
+    },
+    {
+      "image_link": "https://www.nestle.in/sites/g/files/pydnoa451/files/styles/brand_carousel_banner/public/Nestea-Banner-01-04.jpg?h=92576ed1&itok=cWGF_N6P"
+    },
+    {
+      "image_link": "https://cdn.shopify.com/s/files/1/0173/7644/4470/files/Mobile-banner_7f64e18f-4584-4852-b81d-cb99dbc73586.jpg?11882"
+    },
+    {
+      "image_link": "https://i.pinimg.com/originals/4c/b3/fb/4cb3fb28299ae861bd1acae471fe7513.jpg"
+    }
+  ],
+  "email": "allmart_vellore@gmail.com",
+  "maps_url": "",
+  "name": "Allmart",
+  "password": "cd8dc1a338cb5e6c1257071334a0bd211dc15e0427e853967ab3065b89e95b2f008f7f7195b31c32d6ea9919ffea5b6b0b032a3e48523a079882b0d1843f13ab",
+  "plaintext_password": "allmart_2020"
 }

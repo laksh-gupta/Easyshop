@@ -152,5 +152,27 @@
             "price": "15",
             "quantity": "250 ml"
         }
-    ]
+    ],
+    "Top products": [
+        {
+            "image_link": "https://www.crushpixel.com/static12/preview2/fresh-organic-kiwi-fruit-sliced-804154.jpg"
+        },
+        {
+            "image_link": "https://www.madewithdelmonte.in/uploads/Del%20Monte%20All%20SKU%20Banner_1360x700_2.jpg"
+        },
+        {
+            "image_link": "https://www.marketing91.com/wp-content/uploads/2016/09/Bournvita-New.jpg"
+        },
+        {
+            "image_link": "https://img.freepik.com/free-vector/juice-ad-with-gradients-letterings_52683-30489.jpg?size=626&ext=jpg"
+        },
+        {
+            "image_link": "https://www.paramountfoils.com/wp-content/uploads/2019/05/main_kitchen-banner-aluminium-foil.jpg"
+        }
+    ],
+    "email": "general_store_vellore@gmail.com",
+    "maps_url": "",
+    "name": "General Store",
+    "password": "851e1c8b4a1023fe092ad2f142d5e4f1fb0dc31011412925cc81872672b8b58e9a953e7351fbfb35e240fe8a40257b41c276650dcd13a6df97dd323ace277d1b",
+    "plaintext_password": "generic_password"
 }

@@ -1,6 +1,5 @@
 {
   "products": [
-    
     {
       "category": "food",
       "description": "Rich in taste",
@@ -121,5 +120,27 @@
       "price": "20",
       "quantity": "50 gm"
     }
-  ]
+  ],
+  "Top products": [
+    {
+      "image_link": "https://cdn.shopify.com/s/files/1/0260/9276/5258/collections/cinthol_banner.jpg?v=1584761848"
+    },
+    {
+      "image_link": "https://lh3.googleusercontent.com/proxy/3cdEYdMTB8yZpw_x-0dLSq235Ytc9GnI8qX-InX0bpV_6HhVF3fOdsvMdesh5jFHHAt0_aBUHB4b4KazaRSMeKazVLxWhNab9cKDjaUhp2tlxtktzE_kCFuYCx76K8q6T8S0F9R7"
+    },
+    {
+      "image_link": "https://www.nestle.in/sites/g/files/pydnoa451/files/styles/brand_carousel_banner/public/Nestea-Banner-01-04.jpg?h=92576ed1&itok=cWGF_N6P"
+    },
+    {
+      "image_link": "https://amul.com/files/products/add/add_processed_cheese8_over.jpg"
+    },
+    {
+      "image_link": "https://i.ytimg.com/vi/2OnT8wzSTog/maxresdefault.jpg"
+    }
+  ],
+  "email": "balaji_vellorevit@gmail.com",
+  "maps_url": "",
+  "name": "Balaji",
+  "password": "78fadc3d5d343ebda2d727f6131a2793ee01f350f3a1b9df3c27a5a71499a1f092700b11d0daad5c0d90f3627367f9bc4636525fdb9c1d5bad594133bc4d37f6",
+  "plaintext_password": "jai_balaji"
 }

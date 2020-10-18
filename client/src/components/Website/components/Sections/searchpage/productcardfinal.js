@@ -15,22 +15,14 @@ const ProductCard = ({ product }) => {
     return (
         <TableContainer>
             <Table>
-                <TableHead>
-                    <TableRow>
-                        <TableCell></TableCell>
-                        <TableCell>Product</TableCell>
-                        <TableCell>Shop</TableCell>
-                        <TableCell>Price</TableCell>
-                    </TableRow>
-                </TableHead>
                 <TableBody>
                     <TableRow>
                         <TableCell>
                             <img height="150px" width="150px" src={product.src} />
                         </TableCell>
-                        <TableCell>{product.title}</TableCell>
-                        <TableCell> {product.subTitle} </TableCell>
-                        <TableCell> {product.color} </TableCell>
+                        <TableCell>{product.image_link}</TableCell>
+                        <TableCell> {product.name} </TableCell>
+                        <TableCell> {product.price} </TableCell>
                     </TableRow>
 
                 </TableBody>

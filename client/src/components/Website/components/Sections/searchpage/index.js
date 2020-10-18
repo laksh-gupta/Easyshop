@@ -43,7 +43,6 @@ var data = [
 export default function ShopSearch(props) {
   const [products, setProducts] = React.useState(data);
   const query = new URLSearchParams(useLocation().search).get('q');
-  //   console.log(new URLSearchParams(useLocation().search).get('q'));
   React.useEffect(() => {
     axios
       .post('http://localhost:5000/query', {

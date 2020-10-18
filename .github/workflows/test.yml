@@ -7,7 +7,7 @@ on:
 jobs:
   build:
     name: Build Checks
-    runs-on: ${{ matrix.os }}
+    runs-on: ubuntu-latest
     strategy:
       matrix:
         os: [ubuntu-latest, windows-latest, macOS-latest]
@@ -29,14 +29,31 @@ jobs:
           npm run build
           ls
 
-  # deploy:
-  #   runs-on: ubuntu-latest
-
-  #   steps:
-  #     - uses: actions/checkout@v1
-  #     - name: deploy on EC2
-  #       run: |
-  #         curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
-  #         unzip awscliv2.zip
-  #         sudo ./aws/install
-  #         aws --version
+  deploy:
+    name: Deploy
+    runs-on: ubuntu-latest
+    needs: [build]
+    steps:
+      - uses: actions/checkout@v1
+      - name: Install Heroku
+        run: |
+          sudo snap install --classic heroku
+      - name: Setup heroku
+        run: |
+          cat >~/.netrc <<EOF
+          machine api.heroku.com
+            login ${{ secrets.EMAIL }}
+            password ${{ secrets.API_KEY }}
+          machine git.heroku.com
+            login ${{ secrets.EMAIL }}
+            password ${{ secrets.API_KEY }}
+          EOF
+      - name: Git setup
+        run: |
+          git config --global user.name Nimish Shah
+          git config --global user.email nimishshah2000@gmail.com
+          git commit -am 'DeployCommit'
+          heroku git:remote -a easyshopindia
+      - name: Deploy
+        run: |
+          git push heroku master

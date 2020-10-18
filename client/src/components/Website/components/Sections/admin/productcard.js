@@ -10,6 +10,7 @@ import {
   Grid,
   Typography,
   makeStyles,
+  Button,
 } from '@material-ui/core';
 import AccessTimeIcon from '@material-ui/icons/AccessTime';
 import GetAppIcon from '@material-ui/icons/GetApp';
@@ -58,8 +59,8 @@ const useStyles = makeStyles((theme) => ({
     fontFamily: 'Helvetica',
   },
   wide: {
-    margin: '5px'
-  }
+    margin: '5px',
+  },
 }));
 
 const ProductCard = ({ className, product, ...rest }) => {
@@ -99,16 +100,20 @@ const ProductCard = ({ className, product, ...rest }) => {
       <Box p={2}>
         <Grid container justify="space-between" spacing={2}>
           <Grid className={classes.statsItem} item>
-            <button className={classes.wide}>
+            <Button
+              variant="contained"
+              color="primary"
+              className={classes.wide}
+            >
               <Typography color="grey" display="inline" variant="body2">
                 +1
-            </Typography>
-            </button>
-            <button>
+              </Typography>
+            </Button>
+            <Button variant="contained" color="primary">
               <Typography color="grey" display="inline" variant="body2">
                 -1
-            </Typography>
-            </button>
+              </Typography>
+            </Button>
           </Grid>
           <Grid className={classes.statsItem} item>
             <GetAppIcon className={classes.statsIcon} color="action" />
@@ -128,4 +133,3 @@ ProductCard.propTypes = {
 };
 
 export default ProductCard;
-

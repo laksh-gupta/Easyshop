@@ -2,6 +2,19 @@ const db = require('../models/firebaseSDK').db;
 const blake2b = require('blakejs').blake2bHex;
 
 module.exports = {
+  getInventory: async (req, res) => {
+    const uid = req.authorizedUser.data.uid;
+    db.collection('users')
+      .doc(uid)
+      .get()
+      .then((data) => {
+        res.status(200).send(data.data().products);
+      })
+      .catch((err) => {
+        console.log(err);
+        res.status(503).send('Error');
+      });
+  },
   addUser: async (req, res) => {
     const { name, email, password } = req.body;
 

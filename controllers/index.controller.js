@@ -55,62 +55,16 @@ module.exports = {
       var a = store.products.filter((product) => {
         return check(product, query);
       });
-      return {
-        name: store.name,
-        products: a,
-      };
+      if (a.length > 0)
+        return {
+          name: store.name,
+          products: a,
+        };
     });
-    // Promise.all(promises).then(() => {
-    //   // var promises_ =
-    //   promises.forEach((products) => {
-    //     products.then((prods) => {
-    //       prods.docs.forEach((doc) => {
-    //         var innerPromises = [];
-    //         const productData = product.data();
-    //         promises.push(
-    //           check(productData, query).then((isValid) => {
-    //             if (isValid) {
-    //               sending_data.push(productData);
-    //             }
-    //           })
-    //         );
-    //       });
-    //     });
-    //   });
-    // });
-    // await new Promise(async (resolve, reject) => {
-    //   // const usersSnapshot = await users.get();
-    //   var promises = [];
-    //   // usersSnapshot.forEach(user => {
 
-    //   // })
-    //   usersSnapshot
-    //     .get()
-    //     .then(async (users) => {
-    //       users.forEach(async (user) => {
-    //         const productSnapshot = await usersSnapshot
-    //           .doc(user.id)
-    //           .collection('products');
-    //         await productSnapshot.get().then(async (products) => {
-    //           products.docs.forEach(async (product) => {
-    //             const productData = product.data();
-    //             promises.push(
-    //               check(productData, query).then((isValid) => {
-    //                 if (isValid) {
-    //                   sending_data.push(productData);
-    //                 }
-    //               })
-    //             );
-    //           });
-    //         });
-    //       });
-    //     })
-    //     .catch((err) => {
-    //       res.send('err');
-    //     });
-    //   Promise.all(promises).then(() => resolve());
-    // });
-    // console.log(sending_data);
-    res.send(filtered);
+    var newFiltered = filtered.filter((item) => {
+      return item;
+    });
+    res.send(newFiltered);
   },
 };

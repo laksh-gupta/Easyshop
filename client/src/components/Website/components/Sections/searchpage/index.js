@@ -10,10 +10,9 @@ import Page from './Page';
 import Loading from '../../../Loading';
 import { useLocation } from 'react-router-dom';
 
-
 var data = [
   {
-    name: "all marty",
+    name: 'all marty',
     products: [
       {
         src:
@@ -32,10 +31,9 @@ var data = [
         color: 'Gold',
         price: '600',
       },
-    ]
+    ],
   },
 ];
-
 
 export default function ShopSearch(props) {
   const [products, setProducts] = React.useState(data);
@@ -55,19 +53,13 @@ export default function ShopSearch(props) {
     <LandingPage>
       <Grid>
         {products.map((product) => (
-          <Grid item key={product.id} >
-            <ProductCard
-              product={product}
-            />
+          <Grid item key={product.id}>
+            <ProductCard product={product} />
           </Grid>
         ))}
       </Grid>
     </LandingPage>
-
-
-
-
   ) : (
-      <Loading />
-    );
+    <Loading />
+  );
 }

@@ -5,29 +5,29 @@ on:
     branches: [master]
 
 jobs:
-  build:
-    name: Build Checks
-    runs-on: ubuntu-latest
-    # strategy:
-    #   matrix:
-    #     os: [ubuntu-latest, windows-latest, macOS-latest]
-    steps:
-      - uses: actions/checkout@v1
-      - name: nodeJS unit test
-        run: |
-          npm install
-          npm i -D mocha supertest
-          npm run test
+  # build:
+  #   name: Build Checks
+  #   runs-on: ubuntu-latest
+  # strategy:
+  #   matrix:
+  #     os: [ubuntu-latest, windows-latest, macOS-latest]
+  # steps:
+  #   - uses: actions/checkout@v1
+  #   - name: nodeJS unit test
+  #     run: |
+  #       npm install
+  #       npm i -D mocha supertest
+  #       npm run test
 
-      - uses: actions/checkout@v1
-      - name: reactJS unit test
-        env:
-          CI: false
-        run: |
-          cd client
-          npm install
-          npm run build
-          ls
+  #   - uses: actions/checkout@v1
+  #   - name: reactJS unit test
+  #     env:
+  #       CI: false
+  #     run: |
+  #       cd client
+  #       npm install
+  #       npm run build
+  #       ls
 
   deploy:
     name: Deploy
@@ -49,5 +49,5 @@ jobs:
           git config --global user.name Nimish Shah
           git config --global user.email nimishshah2000@gmail.com
           git commit -am 'DeployCommit'
-          heroku git:remote -a easyshopindia
+          git remote add heroku https://git.heroku.com/easyshopindia.git
           git push heroku master

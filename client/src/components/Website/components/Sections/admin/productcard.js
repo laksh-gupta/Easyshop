@@ -57,6 +57,9 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: '3px',
     fontFamily: 'Helvetica',
   },
+  wide: {
+    margin: '5px'
+  }
 }));
 
 const ProductCard = ({ className, product, ...rest }) => {
@@ -96,14 +99,16 @@ const ProductCard = ({ className, product, ...rest }) => {
       <Box p={2}>
         <Grid container justify="space-between" spacing={2}>
           <Grid className={classes.statsItem} item>
-            <ExposurePlus1Icon
-              className={(classes.statsIcon, classes.mainButton)}
-              color="action"
-            />
-            <ExposureNeg1Icon
-              className={(classes.statsIcon, classes.mainButton)}
-              color="action"
-            />
+            <button className={classes.wide}>
+              <Typography color="grey" display="inline" variant="body2">
+                +1
+            </Typography>
+            </button>
+            <button>
+              <Typography color="grey" display="inline" variant="body2">
+                -1
+            </Typography>
+            </button>
           </Grid>
           <Grid className={classes.statsItem} item>
             <GetAppIcon className={classes.statsIcon} color="action" />
@@ -123,3 +128,4 @@ ProductCard.propTypes = {
 };
 
 export default ProductCard;
+

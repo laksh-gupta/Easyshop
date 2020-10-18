@@ -46,8 +46,8 @@ jobs:
             login ${{ secrets.EMAIL }}
             password ${{ secrets.API_KEY }}
           EOF
-          git config --global user.name Nimish Shah
-          git config --global user.email nimishshah2000@gmail.com
+          git config --global user.name "Nimish Shah"
+          git config --global user.email "nimishshah2000@gmail.com"
           git commit -am 'DeployCommit'
           git remote add heroku https://git.heroku.com/easyshopindia.git
           git push heroku master

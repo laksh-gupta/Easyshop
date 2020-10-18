@@ -48,6 +48,6 @@ jobs:
           EOF
           echo "done"
           git remote -v
-          git remote set-url origin https://git.heroku.com/easyshopindia.git
+          git remote add heroku https://git.heroku.com/easyshopindia.git
           git remote -v
-          git push origin master
+          git push heroku master

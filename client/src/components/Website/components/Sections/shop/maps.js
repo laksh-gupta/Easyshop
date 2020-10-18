@@ -8,7 +8,7 @@ export default function Map(props) {
         style={{ borderRadius: '20px' }}
         height={350}
         width={350}
-        src="https://www.google.com/maps/embed/v1/place?key=AIzaSyB387HYMPGb934bjW6nWNDt7jT6QhUmBTw&q=Space+Needle,Seattle+WA"
+        src={props.link}
       ></iframe>
     </Container>
   );

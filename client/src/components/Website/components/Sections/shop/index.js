@@ -1,5 +1,6 @@
 import React from 'react';
 import { Switch, Route, useRouteMatch } from 'react-router-dom';
+import axios from 'axios';
 import Header from '../../../../utils/Header/Header.js';
 import HeaderLinks from '../../headerLinks';
 import { makeStyles } from '@material-ui/core/styles';
@@ -47,111 +48,115 @@ const ShopComp = (props) => {
   };
   React.useEffect(() => {
     // Get data of the store from backend
-    setData({
-      name: 'All Maart',
-      logo: 'url',
-      maps_url:
-        'https://www.google.com/maps/embed/v1/place?key=AIzaSyB387HYMPGb934bjW6nWNDt7jT6QhUmBTw&q=Space+Needle,Seattle+WA',
-      products: [
-        {
-          name: 'maggie',
-          price: '20',
-          image:
-            'https://www.ft.com/__origami/service/image/v2/images/raw/https%3A%2F%2Fs3-ap-northeast-1.amazonaws.com%2Fpsh-ex-ftnikkei-3937bb4%2Fimages%2F0%2F6%2F0%2F9%2F15379060-1-eng-GB%2FR20180823%20Maggi%20noodle_2048x1152.jpg?source=nar-cms',
-        },
-        {
-          name: 'maggie',
-          price: '20',
-          image:
-            'https://www.ft.com/__origami/service/image/v2/images/raw/https%3A%2F%2Fs3-ap-northeast-1.amazonaws.com%2Fpsh-ex-ftnikkei-3937bb4%2Fimages%2F0%2F6%2F0%2F9%2F15379060-1-eng-GB%2FR20180823%20Maggi%20noodle_2048x1152.jpg?source=nar-cms',
-        },
-        {
-          name: 'maggie',
-          price: '20',
-          image:
-            'https://www.ft.com/__origami/service/image/v2/images/raw/https%3A%2F%2Fs3-ap-northeast-1.amazonaws.com%2Fpsh-ex-ftnikkei-3937bb4%2Fimages%2F0%2F6%2F0%2F9%2F15379060-1-eng-GB%2FR20180823%20Maggi%20noodle_2048x1152.jpg?source=nar-cms',
-        },
-        {
-          name: 'maggie',
-          price: '20',
-          image:
-            'https://www.ft.com/__origami/service/image/v2/images/raw/https%3A%2F%2Fs3-ap-northeast-1.amazonaws.com%2Fpsh-ex-ftnikkei-3937bb4%2Fimages%2F0%2F6%2F0%2F9%2F15379060-1-eng-GB%2FR20180823%20Maggi%20noodle_2048x1152.jpg?source=nar-cms',
-        },
-        {
-          name: 'Classmate',
-          price: '100',
-          image:
-            'https://images-na.ssl-images-amazon.com/images/I/71adtAB2FZL.jpg',
-        },
-        {
-          name: 'Classmate',
-          price: '100',
-          image:
-            'https://images-na.ssl-images-amazon.com/images/I/71adtAB2FZL.jpg',
-        },
-        {
-          name: 'Classmate',
-          price: '100',
-          image:
-            'https://images-na.ssl-images-amazon.com/images/I/71adtAB2FZL.jpg',
-        },
-        {
-          name: 'Classmate',
-          price: '100',
-          image:
-            'https://images-na.ssl-images-amazon.com/images/I/71adtAB2FZL.jpg',
-        },
-        {
-          name: 'maggie',
-          price: '20',
-          image:
-            'https://www.ft.com/__origami/service/image/v2/images/raw/https%3A%2F%2Fs3-ap-northeast-1.amazonaws.com%2Fpsh-ex-ftnikkei-3937bb4%2Fimages%2F0%2F6%2F0%2F9%2F15379060-1-eng-GB%2FR20180823%20Maggi%20noodle_2048x1152.jpg?source=nar-cms',
-        },
-        {
-          name: 'maggie',
-          price: '20',
-          image:
-            'https://www.ft.com/__origami/service/image/v2/images/raw/https%3A%2F%2Fs3-ap-northeast-1.amazonaws.com%2Fpsh-ex-ftnikkei-3937bb4%2Fimages%2F0%2F6%2F0%2F9%2F15379060-1-eng-GB%2FR20180823%20Maggi%20noodle_2048x1152.jpg?source=nar-cms',
-        },
-        {
-          name: 'maggie',
-          price: '20',
-          image:
-            'https://www.ft.com/__origami/service/image/v2/images/raw/https%3A%2F%2Fs3-ap-northeast-1.amazonaws.com%2Fpsh-ex-ftnikkei-3937bb4%2Fimages%2F0%2F6%2F0%2F9%2F15379060-1-eng-GB%2FR20180823%20Maggi%20noodle_2048x1152.jpg?source=nar-cms',
-        },
-        {
-          name: 'maggie',
-          price: '20',
-          image:
-            'https://www.ft.com/__origami/service/image/v2/images/raw/https%3A%2F%2Fs3-ap-northeast-1.amazonaws.com%2Fpsh-ex-ftnikkei-3937bb4%2Fimages%2F0%2F6%2F0%2F9%2F15379060-1-eng-GB%2FR20180823%20Maggi%20noodle_2048x1152.jpg?source=nar-cms',
-        },
-        {
-          name: 'Classmate',
-          price: '20',
-          image:
-            'https://images-na.ssl-images-amazon.com/images/I/71adtAB2FZL.jpg',
-        },
-        {
-          name: 'Classmate',
-          price: '20',
-          image:
-            'https://images-na.ssl-images-amazon.com/images/I/71adtAB2FZL.jpg',
-        },
-        {
-          name: 'Classmate',
-          price: '20',
-          image:
-            'https://images-na.ssl-images-amazon.com/images/I/71adtAB2FZL.jpg',
-        },
-        {
-          name: 'Classmate',
-          price: '20',
-          image:
-            'https://images-na.ssl-images-amazon.com/images/I/71adtAB2FZL.jpg',
-        },
-      ],
+    // setData({
+    //   name: 'All Maart',
+    //   logo: 'url',
+    //   maps_url:
+    //     'https://www.google.com/maps/embed/v1/place?key=AIzaSyB387HYMPGb934bjW6nWNDt7jT6QhUmBTw&q=Space+Needle,Seattle+WA',
+    //   products: [
+    //     {
+    //       name: 'maggie',
+    //       price: '20',
+    //       image:
+    //         'https://www.ft.com/__origami/service/image/v2/images/raw/https%3A%2F%2Fs3-ap-northeast-1.amazonaws.com%2Fpsh-ex-ftnikkei-3937bb4%2Fimages%2F0%2F6%2F0%2F9%2F15379060-1-eng-GB%2FR20180823%20Maggi%20noodle_2048x1152.jpg?source=nar-cms',
+    //     },
+    //     {
+    //       name: 'maggie',
+    //       price: '20',
+    //       image:
+    //         'https://www.ft.com/__origami/service/image/v2/images/raw/https%3A%2F%2Fs3-ap-northeast-1.amazonaws.com%2Fpsh-ex-ftnikkei-3937bb4%2Fimages%2F0%2F6%2F0%2F9%2F15379060-1-eng-GB%2FR20180823%20Maggi%20noodle_2048x1152.jpg?source=nar-cms',
+    //     },
+    //     {
+    //       name: 'maggie',
+    //       price: '20',
+    //       image:
+    //         'https://www.ft.com/__origami/service/image/v2/images/raw/https%3A%2F%2Fs3-ap-northeast-1.amazonaws.com%2Fpsh-ex-ftnikkei-3937bb4%2Fimages%2F0%2F6%2F0%2F9%2F15379060-1-eng-GB%2FR20180823%20Maggi%20noodle_2048x1152.jpg?source=nar-cms',
+    //     },
+    //     {
+    //       name: 'maggie',
+    //       price: '20',
+    //       image:
+    //         'https://www.ft.com/__origami/service/image/v2/images/raw/https%3A%2F%2Fs3-ap-northeast-1.amazonaws.com%2Fpsh-ex-ftnikkei-3937bb4%2Fimages%2F0%2F6%2F0%2F9%2F15379060-1-eng-GB%2FR20180823%20Maggi%20noodle_2048x1152.jpg?source=nar-cms',
+    //     },
+    //     {
+    //       name: 'Classmate',
+    //       price: '100',
+    //       image:
+    //         'https://images-na.ssl-images-amazon.com/images/I/71adtAB2FZL.jpg',
+    //     },
+    //     {
+    //       name: 'Classmate',
+    //       price: '100',
+    //       image:
+    //         'https://images-na.ssl-images-amazon.com/images/I/71adtAB2FZL.jpg',
+    //     },
+    //     {
+    //       name: 'Classmate',
+    //       price: '100',
+    //       image:
+    //         'https://images-na.ssl-images-amazon.com/images/I/71adtAB2FZL.jpg',
+    //     },
+    //     {
+    //       name: 'Classmate',
+    //       price: '100',
+    //       image:
+    //         'https://images-na.ssl-images-amazon.com/images/I/71adtAB2FZL.jpg',
+    //     },
+    //     {
+    //       name: 'maggie',
+    //       price: '20',
+    //       image:
+    //         'https://www.ft.com/__origami/service/image/v2/images/raw/https%3A%2F%2Fs3-ap-northeast-1.amazonaws.com%2Fpsh-ex-ftnikkei-3937bb4%2Fimages%2F0%2F6%2F0%2F9%2F15379060-1-eng-GB%2FR20180823%20Maggi%20noodle_2048x1152.jpg?source=nar-cms',
+    //     },
+    //     {
+    //       name: 'maggie',
+    //       price: '20',
+    //       image:
+    //         'https://www.ft.com/__origami/service/image/v2/images/raw/https%3A%2F%2Fs3-ap-northeast-1.amazonaws.com%2Fpsh-ex-ftnikkei-3937bb4%2Fimages%2F0%2F6%2F0%2F9%2F15379060-1-eng-GB%2FR20180823%20Maggi%20noodle_2048x1152.jpg?source=nar-cms',
+    //     },
+    //     {
+    //       name: 'maggie',
+    //       price: '20',
+    //       image:
+    //         'https://www.ft.com/__origami/service/image/v2/images/raw/https%3A%2F%2Fs3-ap-northeast-1.amazonaws.com%2Fpsh-ex-ftnikkei-3937bb4%2Fimages%2F0%2F6%2F0%2F9%2F15379060-1-eng-GB%2FR20180823%20Maggi%20noodle_2048x1152.jpg?source=nar-cms',
+    //     },
+    //     {
+    //       name: 'maggie',
+    //       price: '20',
+    //       image:
+    //         'https://www.ft.com/__origami/service/image/v2/images/raw/https%3A%2F%2Fs3-ap-northeast-1.amazonaws.com%2Fpsh-ex-ftnikkei-3937bb4%2Fimages%2F0%2F6%2F0%2F9%2F15379060-1-eng-GB%2FR20180823%20Maggi%20noodle_2048x1152.jpg?source=nar-cms',
+    //     },
+    //     {
+    //       name: 'Classmate',
+    //       price: '20',
+    //       image:
+    //         'https://images-na.ssl-images-amazon.com/images/I/71adtAB2FZL.jpg',
+    //     },
+    //     {
+    //       name: 'Classmate',
+    //       price: '20',
+    //       image:
+    //         'https://images-na.ssl-images-amazon.com/images/I/71adtAB2FZL.jpg',
+    //     },
+    //     {
+    //       name: 'Classmate',
+    //       price: '20',
+    //       image:
+    //         'https://images-na.ssl-images-amazon.com/images/I/71adtAB2FZL.jpg',
+    //     },
+    //     {
+    //       name: 'Classmate',
+    //       price: '20',
+    //       image:
+    //         'https://images-na.ssl-images-amazon.com/images/I/71adtAB2FZL.jpg',
+    //     },
+    //   ],
+    // });
+    axios.get(`http://localhost:5000/store/${props.id}`).then((res_) => {
+      setData(res_.data);
     });
   }, []);
+  console.log(data);
   return data ? (
     <div>
       <Header
@@ -181,7 +186,7 @@ const ShopComp = (props) => {
                     <CardActionArea>
                       <CardMedia
                         className={classes.media}
-                        image={prod.image}
+                        image={prod.image_link}
                         title={prod.name}
                       />
                       <CardContent>
@@ -206,7 +211,7 @@ const ShopComp = (props) => {
               <Pagination
                 onChange={handleChangePage}
                 page={page}
-                count={Math.round(data.products.length / 9)}
+                count={Math.ceil(data.products.length / 9)}
                 color="primary"
               />
             </Grid>
@@ -216,7 +221,7 @@ const ShopComp = (props) => {
       <div className={classes.main}>
         <Grid container>
           <Grid item sm={6}>
-            <Map />
+            <Map link={data.maps_link} />
           </Grid>
           <Grid style={{ padding: '40px' }} item sm={6}>
             <Typography>Name: All Maart</Typography>

@@ -7,6 +7,7 @@ const decrypt_ = require('./helpers/rsaDecrypt').decrypt_;
 const app = express();
 // const mongoURL = "mongodb://127.0.0.1:27017/test";
 const index = require('./routes/index.route');
+const store = require('./routes/store.route');
 const verifyJWT = require('./helpers/verifyJWT');
 
 app.use(cors());
@@ -17,7 +18,7 @@ app.use(
   })
 );
 app.use('/', index);
-
+app.use('/store', store);
 app.get('/test', (req, res) => {
   res.send('success');
 });

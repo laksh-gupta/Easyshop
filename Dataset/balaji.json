@@ -6,7 +6,7 @@
       "description": "Rich in taste",
       "image_link": "https://d1s2zprapij148.cloudfront.net/image/cache/catalog/products/21641-200x200.jpg",
       "name": "Bikaji Bhujia",
-      "price": "210",
+      "price": "249",
       "quantity": "1000g"
     },
     {
@@ -22,7 +22,7 @@
       "description": "liquid soap",
       "image_link": "https://d1s2zprapij148.cloudfront.net/image/cache/catalog/products/19572-200x200.jpg",
       "name": "Burhani Liquid Soap",
-      "price": "69",
+      "price": "99",
       "quantity": "500ml"
     },
     {
@@ -30,7 +30,7 @@
       "description": "Foil",
       "image_link": "https://d1s2zprapij148.cloudfront.net/image/cache/catalog/products/5826_1-200x200.jpg",
       "name": "Aluminium Foil",
-      "price": "295",
+      "price": "285",
       "quantity": "72 meter"
     },
     {
@@ -38,7 +38,7 @@
       "description": "Groundnut Oil",
       "image_link": "https://d1s2zprapij148.cloudfront.net/image/cache/catalog/products/24237-200x200.jpg",
       "name": "Madhuri Groundnut Oil",
-      "price": "2320",
+      "price": "2310",
       "quantity": "15 ltr"
     },
     {
@@ -46,7 +46,7 @@
       "description": "Olive Oil",
       "image_link": "https://d1s2zprapij148.cloudfront.net/image/cache/catalog/products/4785_3-200x200.jpg",
       "name": "Del Monte Olive Oil",
-      "price": "2099",
+      "price": "2499",
       "quantity": "5 ltr"
     },
     {
@@ -78,7 +78,7 @@
       "description": "Butter",
       "image_link": "https://d1s2zprapij148.cloudfront.net/image/cache/catalog/products/24805-200x200.jpg",
       "name": "Amul Butter",
-      "price": "500",
+      "price": "520",
       "quantity": "1 Kg"
     },
     {
@@ -86,7 +86,7 @@
       "description": "Cheese",
       "image_link": "https://d1s2zprapij148.cloudfront.net/image/cache/catalog/products/3146_1-200x200.jpg",
       "name": "Amul Cheese",
-      "price": "200",
+      "price": "190",
       "quantity": "400 gm"
     },
     {
@@ -120,14 +120,6 @@
       "name": "Close-Up Red Hot Toothpaste",
       "price": "20",
       "quantity": "50 gm"
-    },
-    {
-      "category": "Personal Care",
-      "description": "Shampoo",
-      "image_link": "https://d1s2zprapij148.cloudfront.net/image/cache/catalog/products/24637-200x200.jpg",
-      "name": "Dabur Vatika Shampoo",
-      "price": "175",
-      "quantity": "100 ml"
-    },
+    }
   ]
 }

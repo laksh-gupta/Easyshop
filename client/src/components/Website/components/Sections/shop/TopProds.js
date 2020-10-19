@@ -18,10 +18,6 @@ export default function TopProds(props) {
   const isDesktop = useMediaQuery(theme.breakpoints.up('lg'), {
     defaultMatches: true,
   });
-  const links = [
-    'https://cdna.artstation.com/p/assets/images/images/014/492/774/large/shyam-yadav-img-20181207-wa0004.jpg?1544172563',
-    'https://mir-s3-cdn-cf.behance.net/project_modules/disp/a5616511439485.560f7aa0666ff.jpg',
-  ];
   return (
     <Paper className={classes.root} variant="outlined">
       <OwlCarousel
@@ -34,10 +30,10 @@ export default function TopProds(props) {
         mouseDrag={true}
         touchDrag={true}
       >
-        {links.map((link) => {
+        {props.top.map((link) => {
           return (
             <div>
-              <img src={link} />
+              <img src={link.image_link} />
             </div>
           );
         })}

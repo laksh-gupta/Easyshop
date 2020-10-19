@@ -11,22 +11,7 @@ import CartContext from './CartContext';
 import Cart from './components/Sections/cart';
 
 export default function HomePage() {
-  const [cart, setCart] = React.useState([
-    {
-      name: 'green tea',
-      image_link:
-        'https://images-na.ssl-images-amazon.com/images/I/51J8BQPA9YL._SX679_.jpg',
-      price: 430,
-      shop: 'allmaart',
-    },
-    {
-      name: 'lol',
-      image_link:
-        'https://images-na.ssl-images-amazon.com/images/I/51J8BQPA9YL._SX679_.jpg',
-      price: 200,
-      shop: 'VIT',
-    },
-  ]);
+  const [cart, setCart] = React.useState([]);
 
   const updateCart = (newVal) => {
     setCart(newVal);

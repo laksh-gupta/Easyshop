@@ -64,6 +64,7 @@ export default function ShopSearch(props) {
                 <TableCell>Product</TableCell>
                 <TableCell>Shop</TableCell>
                 <TableCell>Price</TableCell>
+                <TableCell>Add to Cart</TableCell>
               </TableRow>
               {products.map((product) => {
                 return product.products.map((prod) => {

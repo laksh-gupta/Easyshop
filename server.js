@@ -21,14 +21,14 @@ app.use(
 app.use('/', index);
 // app.use('/users', users);
 app.use('/store', store);
-// app.get('/test', (req, res) => {
-//   res.send('success');
-// });
+app.get('/test', (req, res) => {
+  res.send('success');
+});
 
-// app.post('/check', verifyJWT, (req, res) => {
-//   // const { payload } = req.body;
-//   res.send(req.body);
-// });
+app.post('/check', verifyJWT, (req, res) => {
+  // const { payload } = req.body;
+  res.send(req.body);
+});
 
 if (process.env.NODE_ENV == 'production') {
   app.use(express.static('client/build'));

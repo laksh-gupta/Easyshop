@@ -1,6 +1,19 @@
 const db = require('../models/firebaseSDK').db;
 
 module.exports = {
+  getInventory: async (req, res) => {
+    const uid = req.authorizedUser.data.uid;
+    db.collection('users')
+      .doc(uid)
+      .get()
+      .then((data) => {
+        res.status(200).send(data.data().products);
+      })
+      .catch((err) => {
+        console.log(err);
+        res.status(503).send('Error');
+      });
+  },
   getProducts: async (req, res) => {
     const storeid = req.params.id;
     await db
@@ -14,6 +27,7 @@ module.exports = {
   updateInventory: async (req, res) => {
     const uid = req.authorizedUser.data.uid;
     const { prod, operation } = req.body;
+    console.log(prod, operation);
     var prods = await db
       .collection('users')
       .doc(uid)

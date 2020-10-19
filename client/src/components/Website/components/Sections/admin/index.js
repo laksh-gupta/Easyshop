@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios';
 import { Redirect } from 'react-router-dom';
 import { AuthContext } from '../../../helper';
 
@@ -8,7 +9,6 @@ import { makeStyles } from '@material-ui/core/styles';
 import LandingPage from '../../LandingPage';
 
 import Page from './page.js';
-import data from './data.js';
 import ProductCard from './productcard';
 
 const useStyles = makeStyles((theme) => ({
@@ -33,12 +33,20 @@ const useStyles = makeStyles((theme) => ({
 export default function AdminPanel() {
   const { currentUser } = React.useContext(AuthContext);
   const classes = useStyles();
-  const [products, setProducts] = React.useState(data);
+  const [products, setProducts] = React.useState([]);
 
   React.useEffect(() => {
-    setProducts((products) => [...products]);
+    axios
+      .get('http://localhost:5000/store', {
+        headers: {
+          authorization: currentUser,
+        },
+      })
+      .then((res_) => {
+        setProducts((products) => products.concat(res_.data));
+      });
   }, []);
-
+  console.log(products);
   return currentUser ? (
     <LandingPage>
       <Page
@@ -46,7 +54,6 @@ export default function AdminPanel() {
         title="EasyShop - Admin"
       >
         <Container maxWidth={false}>
-          {/* <Toolbar /> */}
           <Box mt={3}>
             <Grid container spacing={3}>
               {products.map((product) => (

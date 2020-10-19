@@ -1,8 +1,8 @@
 import React from 'react';
+import axios from 'axios';
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
 import {
-  Avatar,
   Box,
   Card,
   CardContent,
@@ -12,16 +12,9 @@ import {
   makeStyles,
   Button,
 } from '@material-ui/core';
-import AccessTimeIcon from '@material-ui/icons/AccessTime';
 import GetAppIcon from '@material-ui/icons/GetApp';
-import ExposurePlus1Icon from '@material-ui/icons/ExposurePlus1';
-import ExposureNeg1Icon from '@material-ui/icons/ExposureNeg1';
-import {
-  successColor,
-  whiteColor,
-  grayColor,
-  hexToRgb,
-} from '../../../../utils/assets/jss/dispplay-react';
+import { grayColor } from '../../../../utils/assets/jss/dispplay-react';
+import { AuthContext } from '../../../helper';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -65,7 +58,63 @@ const useStyles = makeStyles((theme) => ({
 
 const ProductCard = ({ className, product, ...rest }) => {
   const classes = useStyles();
+  const { currentUser } = React.useContext(AuthContext);
+  const submit1 = (e) => {
+    e.preventDefault();
+    const { name } = e.target.elements;
+    console.log(name.value);
+    axios
+      .post(
+        'http://localhost:5000/store/update',
+        {
+          prod: name.value,
+          operation: 1,
+        },
+        {
+          headers: {
+            authorization: currentUser,
+          },
+        }
+      )
+      .then((res_) => {
+        if (res_.data === 'success') {
+          alert('updated');
+          window.location.href = '/admin';
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+        alert('Error Occured');
+      });
+  };
 
+  const submit2 = (e) => {
+    e.preventDefault();
+    const { name } = e.target.elements;
+    axios
+      .post(
+        'http://localhost:5000/store/update',
+        {
+          prod: name.value,
+          operation: -1,
+        },
+        {
+          headers: {
+            authorization: currentUser,
+          },
+        }
+      )
+      .then((res_) => {
+        if (res_.data === 'success') {
+          alert('updated');
+          window.location.href = '/admin';
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+        alert('Error Occured');
+      });
+  };
   return (
     <Card className={clsx(classes.root, classes.mainRaised)} {...rest}>
       <CardContent>
@@ -75,12 +124,7 @@ const ProductCard = ({ className, product, ...rest }) => {
           className={classes.modify}
           mb={3}
         >
-          <Avatar
-            alt="product"
-            className={classes.modify}
-            src={product.media}
-            variant="square"
-          />
+          <img width="100px" height="100px" src={product.image_link} />
         </Box>
 
         <Typography
@@ -93,32 +137,34 @@ const ProductCard = ({ className, product, ...rest }) => {
           {product.title}
         </Typography>
         <Typography align="center" color="textPrimary" variant="body1">
-          {product.description}
+          {product.name}
         </Typography>
       </CardContent>
       <Divider />
       <Box p={2}>
         <Grid container justify="space-between" spacing={2}>
           <Grid className={classes.statsItem} item>
-            <Button
-              variant="contained"
-              color="primary"
-              className={classes.wide}
-            >
-              <Typography color="grey" display="inline" variant="body2">
-                +1
-              </Typography>
-            </Button>
-            <Button variant="contained" color="primary">
-              <Typography color="grey" display="inline" variant="body2">
-                -1
-              </Typography>
-            </Button>
+            <form onSubmit={submit1}>
+              <input name="name" value={product.name} hidden />
+              <Button type="submit" variant="contained" color="primary">
+                <Typography color="grey" display="inline" variant="body2">
+                  +1
+                </Typography>
+              </Button>
+            </form>
+            <form onSubmit={submit2}>
+              <input name="name" value={product.name} hidden />
+              <Button type="submit" variant="contained" color="primary">
+                <Typography color="grey" display="inline" variant="body2">
+                  -1
+                </Typography>
+              </Button>
+            </form>
           </Grid>
           <Grid className={classes.statsItem} item>
             <GetAppIcon className={classes.statsIcon} color="action" />
             <Typography color="grey" display="inline" variant="body2">
-              {product.totalDownloads} available
+              {product.quantity} available
             </Typography>
           </Grid>
         </Grid>

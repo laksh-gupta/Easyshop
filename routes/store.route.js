@@ -3,9 +3,8 @@ const decrypt_ = require('../helpers/rsaDecrypt').decrypt_;
 const store = require('../controllers/store.controller');
 const verifyJWT = require('../helpers/verifyJWT');
 
+router.get('/', verifyJWT, store.getInventory);
 router.get('/:id', store.getProducts);
-
-router.get('/', verifyJWT, store.getProducts);
-router.put('/update', verifyJWT, store.updateInventory);
+router.post('/update', verifyJWT, store.updateInventory);
 
 module.exports = router;

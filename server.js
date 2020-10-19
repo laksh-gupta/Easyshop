@@ -8,6 +8,7 @@ const app = express();
 // const mongoURL = "mongodb://127.0.0.1:27017/test";
 const index = require('./routes/index.route');
 const store = require('./routes/store.route');
+// const users = require('./routes/users.routes');
 const verifyJWT = require('./helpers/verifyJWT');
 
 app.use(cors());
@@ -18,15 +19,16 @@ app.use(
   })
 );
 app.use('/', index);
+// app.use('/users', users);
 app.use('/store', store);
-app.get('/test', (req, res) => {
-  res.send('success');
-});
+// app.get('/test', (req, res) => {
+//   res.send('success');
+// });
 
-app.post('/check', verifyJWT, (req, res) => {
-  // const { payload } = req.body;
-  res.send(req.body);
-});
+// app.post('/check', verifyJWT, (req, res) => {
+//   // const { payload } = req.body;
+//   res.send(req.body);
+// });
 
 const port = process.env.PORT || 5000;
 

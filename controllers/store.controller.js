@@ -27,7 +27,7 @@ module.exports = {
   updateInventory: async (req, res) => {
     const uid = req.authorizedUser.data.uid;
     const { prod, operation } = req.body;
-    console.log(prod, operation);
+    console.log(req.body, prod, operation);
     var prods = await db
       .collection('users')
       .doc(uid)

@@ -15,6 +15,7 @@ import {
 import GetAppIcon from '@material-ui/icons/GetApp';
 import { grayColor } from '../../../../utils/assets/jss/dispplay-react';
 import { AuthContext } from '../../../helper';
+import encrypt_ from '../../../../../helpers/jsonEncrypt';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -67,8 +68,10 @@ const ProductCard = ({ className, product, ...rest }) => {
       .post(
         'http://localhost:5000/store/update',
         {
-          prod: name.value,
-          operation: 1,
+          payload: encrypt_({
+            prod: name.value,
+            operation: 1,
+          }),
         },
         {
           headers: {
@@ -95,8 +98,10 @@ const ProductCard = ({ className, product, ...rest }) => {
       .post(
         'http://localhost:5000/store/update',
         {
-          prod: name.value,
-          operation: -1,
+          payload: encrypt_({
+            prod: name.value,
+            operation: -1,
+          }),
         },
         {
           headers: {

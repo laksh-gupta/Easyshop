@@ -22,15 +22,13 @@ import {
   Checkbox,
   Grid,
   Button,
-  TableRow,
-  TableCell,
 } from '@material-ui/core';
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 // react components for routing our app without refresh
 import { Link, useHistory } from 'react-router-dom';
 import Typography from './../../utils/assets/jss/material-kit-react/components/typography';
 import CustomDropdown from './../../utils/CustomDropdown/CustomDropdown';
-
+import server from '../../../config';
 import styles from './../../utils/assets/jss/material-kit-react/components/headerLinksStyle.js';
 import CartContext from '../CartContext';
 
@@ -61,6 +59,7 @@ const useStyles2 = makeStyles((theme) => ({
 }));
 
 const Auth = ({ history }) => {
+  const { currentUser } = React.useContext(AuthContext);
   const classes = useStyles2();
   const classes1 = useStyles();
   var [open, setOpen] = React.useState(false);
@@ -77,8 +76,9 @@ const Auth = ({ history }) => {
     async (event) => {
       event.preventDefault();
       const { email, password } = event.target.elements;
+      console.log(server);
       axios
-        .post('http://localhost:5000/login', {
+        .post(server + '/login', {
           payload: encrypt_({
             email: email.value,
             password: password.value,
@@ -96,8 +96,6 @@ const Auth = ({ history }) => {
     },
     [history]
   );
-
-  const { currentUser } = React.useContext(AuthContext);
 
   if (currentUser) {
     console.log(currentUser);

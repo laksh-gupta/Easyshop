@@ -23,10 +23,11 @@ jobs:
       - name: reactJS unit test
         env:
           CI: false
+          NODE_ENV: "development"
         run: |
           cd client
           npm install
-          npm run build
+          npm run test
           ls
 
   deploy:

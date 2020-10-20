@@ -21,7 +21,12 @@ const ProductCard = ({ product, shopname }) => {
   return (
     <TableRow>
       <TableCell>
-        <img height="150px" width="150px" src={product.image_link} />
+        <img
+          alt={product.name}
+          height="150px"
+          width="150px"
+          src={product.image_link}
+        />
       </TableCell>
       <TableCell>{product.name}</TableCell>
       <TableCell> {shopname} </TableCell>

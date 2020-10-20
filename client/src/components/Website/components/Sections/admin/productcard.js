@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import server from '../../../../../config';
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
 import {
@@ -66,7 +67,7 @@ const ProductCard = ({ className, product, ...rest }) => {
     console.log(name.value);
     axios
       .post(
-        'http://localhost:5000/store/update',
+        server + '/store/update',
         {
           payload: encrypt_({
             prod: name.value,
@@ -96,7 +97,7 @@ const ProductCard = ({ className, product, ...rest }) => {
     const { name } = e.target.elements;
     axios
       .post(
-        'http://localhost:5000/store/update',
+        server + '/store/update',
         {
           payload: encrypt_({
             prod: name.value,
@@ -129,7 +130,12 @@ const ProductCard = ({ className, product, ...rest }) => {
           className={classes.modify}
           mb={3}
         >
-          <img width="100px" height="100px" src={product.image_link} />
+          <img
+            alt={product.name}
+            width="100px"
+            height="100px"
+            src={product.image_link}
+          />
         </Box>
 
         <Typography

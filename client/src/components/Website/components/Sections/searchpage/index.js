@@ -1,51 +1,26 @@
 import React from 'react';
 import axios from 'axios';
-
-import { Box, Container, Grid } from '@material-ui/core';
-import { makeStyles } from '@material-ui/core/styles';
+import server from '../../../../../config';
 
 import LandingPage from '../../LandingPage';
 import ProductCard from './productcardfinal';
-import Page from './Page';
 import Loading from '../../../Loading';
 import { useLocation } from 'react-router-dom';
 
 import Table from '@material-ui/core/Table';
-import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
 import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
-import Paper from '@material-ui/core/Paper';
-
-var data = [
-  {
-    name: 'allmart',
-    products: [
-      {
-        image_link:
-          'https://images-na.ssl-images-amazon.com/images/I/71s9FMKzr%2BL._SL1500_.jpg',
-        name: 'Headphones',
-        price: '200',
-        quantity: '200',
-      },
-      {
-        image_link:
-          'https://images-na.ssl-images-amazon.com/images/I/71s9FMKzr%2BL._SL1500_.jpg',
-        name: 'Headphones',
-        price: '200',
-        quantity: '200',
-      },
-    ],
-  },
-];
+import Grid from '@material-ui/core/Grid';
 
 export default function ShopSearch(props) {
-  const [products, setProducts] = React.useState(data);
+  const [products, setProducts] = React.useState([]);
   const query = new URLSearchParams(useLocation().search).get('q');
+  // eslint-disable-next-line
   React.useEffect(() => {
     axios
-      .post('http://localhost:5000/query', {
+      .post(server + '/query', {
         query: query,
       })
       .then((res_) => {

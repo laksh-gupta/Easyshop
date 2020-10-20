@@ -27,7 +27,7 @@ import {
   grayColor,
   hexToRgb,
 } from '../../../../utils/assets/jss/dispplay-react';
-const styles = (theme) => ({
+const styles = () => ({
   successText: {
     color: successColor[0],
   },

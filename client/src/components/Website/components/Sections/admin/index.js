@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import server from '../../../../../config';
 import { Redirect } from 'react-router-dom';
 import { AuthContext } from '../../../helper';
 import Button from '@material-ui/core/Button';
@@ -13,18 +14,12 @@ import Page from './page.js';
 import ProductCard from './productcard';
 
 import Dialog from '@material-ui/core/Dialog';
-import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
-import DialogContentText from '@material-ui/core/DialogContentText';
-import DialogTitle from '@material-ui/core/DialogTitle';
 import Avatar from '@material-ui/core/Avatar';
 
 import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Checkbox from '@material-ui/core/Checkbox';
 import Link from '@material-ui/core/Link';
-import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
 import Typography from '@material-ui/core/Typography';
 const useStyles = makeStyles((theme) => ({
@@ -79,7 +74,7 @@ export default function AdminPanel() {
 
   React.useEffect(() => {
     axios
-      .get('http://localhost:5000/store', {
+      .get(server + '/store', {
         headers: {
           authorization: currentUser,
         },

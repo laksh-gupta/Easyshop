@@ -1,6 +1,7 @@
 import React from 'react';
 import { Switch, Route, useRouteMatch } from 'react-router-dom';
 import axios from 'axios';
+import server from '../../../../../config';
 import Header from '../../../../utils/Header/Header.js';
 import HeaderLinks from '../../headerLinks';
 import { makeStyles } from '@material-ui/core/styles';
@@ -47,7 +48,7 @@ const ShopComp = (props) => {
     setPage(val);
   };
   React.useEffect(() => {
-    axios.get(`http://localhost:5000/store/${props.id}`).then((res_) => {
+    axios.get(`${server}/store/${props.id}`).then((res_) => {
       setData(res_.data);
     });
   }, []);

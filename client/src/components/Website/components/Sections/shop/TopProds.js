@@ -33,7 +33,7 @@ export default function TopProds(props) {
         {props.top.map((link) => {
           return (
             <div>
-              <img src={link.image_link} />
+              <img alt={'lol'} src={link.image_link} />
             </div>
           );
         })}

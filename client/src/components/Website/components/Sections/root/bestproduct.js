@@ -49,24 +49,39 @@ export default function ProfilePage(props) {
                       <GridItem xs={12} sm={6} md={4}>
                         <img
                           alt="..."
-                          src={studio1}
+                          src="https://cdn.dribbble.com/users/2833589/screenshots/7143294/media/88fca13b23cc3eeb0590f7c96f27e7e8.jpg"
                           className={navImageClasses}
                         />
                         <img
                           alt="..."
-                          src={studio2}
+                          src="https://www.nutella.com/ca/sites/nutella_ca/files/2020-08/20fer6051_nutella_madeincanada_sustainable_commitments_1400x887_en_r1_v2.jpg?t=1599150591"
+                          className={navImageClasses}
+                        />
+                        <img
+                          alt="..."
+                          src="https://www.nestle.in/sites/g/files/pydnoa451/files/styles/brand_carousel_banner/public/Nestea-Banner-01-04.jpg?h=92576ed1&itok=cWGF_N6P"
+                          className={navImageClasses}
+                        />
+                        <img
+                          alt="..."
+                          src="https://cdn.shopify.com/s/files/1/0173/7644/4470/files/Mobile-banner_7f64e18f-4584-4852-b81d-cb99dbc73586.jpg?11882"
                           className={navImageClasses}
                         />
                       </GridItem>
                       <GridItem xs={12} sm={6} md={4}>
                         <img
                           alt="..."
-                          src={studio5}
+                          src="https://www.madewithdelmonte.in/uploads/Del%20Monte%20All%20SKU%20Banner_1360x700_2.jpg"
                           className={navImageClasses}
                         />
                         <img
                           alt="..."
-                          src={studio4}
+                          src="https://www.paramountfoils.com/wp-content/uploads/2019/05/main_kitchen-banner-aluminium-foil.jpg"
+                          className={navImageClasses}
+                        />
+                        <img
+                          alt="..."
+                          src="https://5.imimg.com/data5/NP/BH/MY-13535572/nagpur-orange-500x500.jpg"
                           className={navImageClasses}
                         />
                       </GridItem>
@@ -81,29 +96,29 @@ export default function ProfilePage(props) {
                       <GridItem xs={12} sm={6} md={4}>
                         <img
                           alt="..."
-                          src={work1}
+                          src="https://d1s2zprapij148.cloudfront.net/image/cache/catalog/products/1714_7-200x200.jpg"
                           className={navImageClasses}
                         />
                         <img
                           alt="..."
-                          src={work2}
+                          src="https://d1s2zprapij148.cloudfront.net/image/cache/catalog/products/19572-200x200.jpg"
                           className={navImageClasses}
                         />
                         <img
                           alt="..."
-                          src={work3}
+                          src="https://d1s2zprapij148.cloudfront.net/image/cache/catalog/products/5826_1-200x200.jpg"
                           className={navImageClasses}
                         />
                       </GridItem>
                       <GridItem xs={12} sm={6} md={4}>
                         <img
                           alt="..."
-                          src={work4}
+                          src="https://d1s2zprapij148.cloudfront.net/image/cache/catalog/products/4785_3-200x200.jpg"
                           className={navImageClasses}
                         />
                         <img
                           alt="..."
-                          src={work5}
+                          src="https://d1s2zprapij148.cloudfront.net/image/cache/catalog/products/5750_3-200x200.jpg"
                           className={navImageClasses}
                         />
                       </GridItem>
@@ -118,29 +133,24 @@ export default function ProfilePage(props) {
                       <GridItem xs={12} sm={6} md={4}>
                         <img
                           alt="..."
-                          src={work4}
+                          src="https://5.imimg.com/data5/HE/NQ/MY-15659747/uniball-click-gel-pen-500x500.jpg"
                           className={navImageClasses}
                         />
                         <img
                           alt="..."
-                          src={studio3}
+                          src="https://3.imimg.com/data3/XI/LJ/MY-3668701/camlin-pencil-250x250.jpeg"
                           className={navImageClasses}
                         />
                       </GridItem>
                       <GridItem xs={12} sm={6} md={4}>
                         <img
                           alt="..."
-                          src={work2}
+                          src="https://imgv2-2-f.scribdassets.com/img/document/324335633/149x198/bb0532d463/1595389160?v=1"
                           className={navImageClasses}
                         />
                         <img
                           alt="..."
-                          src={work1}
-                          className={navImageClasses}
-                        />
-                        <img
-                          alt="..."
-                          src={studio1}
+                          src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRKRMAgpXuGkRtQtxg1HWg_cTZVNVBuVCaquw&usqp=CAU"
                           className={navImageClasses}
                         />
                       </GridItem>

@@ -1,7 +1,10 @@
 const express = require('express');
 const path = require('path');
 const cors = require('cors');
-const decrypt_ = require('./helpers/rsaDecrypt').decrypt_;
+var RateLimit = require('express-rate-limit');
+const morgan = require('morgan');
+// const ddos = require('./helpers/ddosHandler');
+// const decrypt_ = require('./helpers/rsaDecrypt').decrypt_;
 // const mongoose = require('mongoose');
 
 const app = express();
@@ -18,8 +21,20 @@ app.use(
     extended: true,
   })
 );
-app.use('/', index);
+app.use(morgan('combined'));
+// app.use(ddos);
+app.enable('trust proxy');
+
+var limiter = new RateLimit({
+  windowMs: 5000,
+  max: 100,
+  delayMs: 0,
+});
+
+app.use(limiter);
+
 // app.use('/users', users);
+app.use('/', index);
 app.use('/store', store);
 app.get('/test', (req, res) => {
   res.send('success');

@@ -10,6 +10,8 @@ https://docs.google.com/spreadsheets/d/12GEjT4T7DFxO5GngETmukfVs-ImZ1GtC2f5oQX6S
 API Testing Link
 https://www.getpostman.com/collections/c6da3b13ae81ffccd11a
 
+Heroku link : https://easyshopindia.herokuapp.com/
+
 ## Project Structure
     root - 
         models -

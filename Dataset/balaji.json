@@ -142,5 +142,8 @@
   "maps_url": "",
   "name": "Balaji",
   "password": "78fadc3d5d343ebda2d727f6131a2793ee01f350f3a1b9df3c27a5a71499a1f092700b11d0daad5c0d90f3627367f9bc4636525fdb9c1d5bad594133bc4d37f6",
-  "plaintext_password": "jai_balaji"
+  "plaintext_password": "jai_balaji",
+  "lattitude":"12.971181",
+  "longitude":"79.160151"
+
 }

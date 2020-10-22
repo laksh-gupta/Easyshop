@@ -142,5 +142,7 @@
     "maps_url": "",
     "name": "Shree Ram Stationary",
     "password": "ff21f5a72f190a853bbb20eeec89faeea837a6269664b76432eeb66a763abc9b935dda243c703f004fc1605053bc40d878aad514c8c396bf4d0e8494aa3919f6",
-    "plaintext_password": "mandirwahibnega"
+    "plaintext_password": "mandirwahibnega",
+    "lattitude":"12.967905",
+    "longitude":"79.155776"
 }

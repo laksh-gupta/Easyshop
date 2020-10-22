@@ -174,5 +174,7 @@
     "maps_url": "",
     "name": "General Store",
     "password": "851e1c8b4a1023fe092ad2f142d5e4f1fb0dc31011412925cc81872672b8b58e9a953e7351fbfb35e240fe8a40257b41c276650dcd13a6df97dd323ace277d1b",
-    "plaintext_password": "generic_password"
+    "plaintext_password": "generic_password",
+    "lattitude":"28.434973",
+    "longitude":"77.068296"
 }

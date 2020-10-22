@@ -87,6 +87,8 @@
       "name": "Classmate Notebook",
       "price": "45",
       "quantity": "1pcs"
+
+      
     },
     {
       "category": "stationary",
@@ -142,5 +144,7 @@
   "maps_url": "",
   "name": "Allmart",
   "password": "cd8dc1a338cb5e6c1257071334a0bd211dc15e0427e853967ab3065b89e95b2f008f7f7195b31c32d6ea9919ffea5b6b0b032a3e48523a079882b0d1843f13ab",
-  "plaintext_password": "allmart_2020"
+  "plaintext_password": "allmart_2020",
+  "lattitude":"12.970290",
+  "longitude":"79.154389"
 }

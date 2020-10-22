@@ -1,6 +1,7 @@
 /*eslint-disable*/
 import React from 'react';
 import { AuthContext } from '../helper';
+import Cookies from 'js-cookie';
 import encrypt_ from '../../../helpers/jsonEncrypt';
 import axios from 'axios';
 import Container from '@material-ui/core/Container';
@@ -30,7 +31,7 @@ import Typography from './../../utils/assets/jss/material-kit-react/components/t
 import CustomDropdown from './../../utils/CustomDropdown/CustomDropdown';
 import server from '../../../config';
 import styles from './../../utils/assets/jss/material-kit-react/components/headerLinksStyle.js';
-import CartContext from '../CartContext';
+import Loading from '../Loading';
 
 const useStyles = makeStyles(styles);
 const useStyles2 = makeStyles((theme) => ({
@@ -223,11 +224,57 @@ const QuickCart = (props) => {
   );
 };
 
+const Quick = ({ cart }) => {
+  return cart ? (
+    <CustomDropdown
+      left
+      caret
+      hoverColor="black"
+      buttonIcon={ShoppingCartIcon}
+      buttonText="Cart"
+      buttonProps={{
+        color: 'transparent',
+      }}
+      dropdownHeader={
+        <Grid style={{ width: '20vw' }} container>
+          <Grid item xs={4}>
+            Name
+          </Grid>
+          <Grid item xs={4}>
+            Shop
+          </Grid>
+          <Grid item xs={4}>
+            Price
+          </Grid>
+        </Grid>
+      }
+      dropdownList={cart.cart
+        .map((product) => {
+          return <QuickCart product={product} />;
+        })
+        .concat(
+          <Link to="/cart" style={{ textDecoration: 'none' }}>
+            <Grid container>
+              <Grid item xs={6}>
+                <Typography>View Detailed</Typography>
+              </Grid>
+              <Grid item xs={6}>
+                <ArrowForwardIosIcon />
+              </Grid>
+            </Grid>
+          </Link>
+        )}
+    />
+  ) : (
+    <Loading />
+  );
+};
+
 export default function HeaderLinks(props) {
   const { currentUser } = React.useContext(AuthContext);
-  const { cart, updateCart } = React.useContext(CartContext);
   const history = useHistory();
   const classes = useStyles();
+
   const submit = (e) => {
     console.log(e.target.value);
     if (e.keyCode === 13) {
@@ -266,45 +313,7 @@ export default function HeaderLinks(props) {
       </ListItem>
 
       <ListItem className={classes.listItem}>
-        <CustomDropdown
-          left
-          caret
-          hoverColor="black"
-          buttonIcon={ShoppingCartIcon}
-          buttonText="Cart"
-          buttonProps={{
-            color: 'transparent',
-          }}
-          dropdownHeader={
-            <Grid style={{ width: '20vw' }} container>
-              <Grid item xs={4}>
-                Name
-              </Grid>
-              <Grid item xs={4}>
-                Shop
-              </Grid>
-              <Grid item xs={4}>
-                Price
-              </Grid>
-            </Grid>
-          }
-          dropdownList={cart
-            .map((product) => {
-              return <QuickCart product={product} />;
-            })
-            .concat(
-              <Link to="/cart" style={{ textDecoration: 'none' }}>
-                <Grid container>
-                  <Grid item xs={6}>
-                    <Typography>View Detailed</Typography>
-                  </Grid>
-                  <Grid item xs={6}>
-                    <ArrowForwardIosIcon />
-                  </Grid>
-                </Grid>
-              </Link>
-            )}
-        />
+        <Quick cart={Cookies.getJSON('cart')} />
       </ListItem>
     </List>
   );

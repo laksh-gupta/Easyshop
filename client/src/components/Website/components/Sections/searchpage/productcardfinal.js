@@ -1,4 +1,5 @@
 import React from 'react';
+import Cookies from 'js-cookie';
 import PropTypes from 'prop-types';
 import TableCell from '@material-ui/core/TableCell';
 import TableRow from '@material-ui/core/TableRow';
@@ -6,17 +7,18 @@ import { Button } from '@material-ui/core';
 import CartContext from '../../../CartContext';
 
 const ProductCard = ({ product, shopname }) => {
-  const { cart, updateCart } = React.useContext(CartContext);
+  // const { cart, updateCart } = React.useContext(CartContext);
+  var cart = Cookies.getJSON('cart');
   const submit = (e) => {
     e.preventDefault();
-    var cart_ = cart;
-    cart_.push({
+    cart.cart.push({
       name: product.name,
       image_link: product.image_link,
       price: product.price,
       shop: shopname,
     });
-    updateCart(cart_);
+    console.log(cart);
+    Cookies.set('cart', cart);
   };
   return (
     <TableRow>

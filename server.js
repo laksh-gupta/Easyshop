@@ -26,7 +26,7 @@ app.use(morgan('combined'));
 app.enable('trust proxy');
 
 var limiter = new RateLimit({
-  windowMs: 5000,
+  windowMs: 6000,
   max: 100,
   delayMs: 0,
 });

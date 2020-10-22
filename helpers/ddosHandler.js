@@ -10,7 +10,7 @@ module.exports = async (req, res, next) => {
   }
 
   if (ips[ip] > 2) {
-    return res.status(429).send('Too many requests');
+    return res.status(429).send('Too many requests, please try again later.');
   }
   console.log(ips);
   next();

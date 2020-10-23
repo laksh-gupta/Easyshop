@@ -1,153 +1,153 @@
 {
-    "products": [
-        {
-            "category": "stationary",
-            "description": "High quality",
-            "image_link": "https://res.sastasundar.com/incom/images/product/Classmate-Plain-Notebook-33-21-cm-1525773117-10044415.jpg",
-            "name": "Classmate Notebook",
-            "price": "39",
-            "quantity": "1pcs"
-        },
-        {
-            "category": "stationary",
-            "description": "Blue/Black",
-            "image_link": "https://images-na.ssl-images-amazon.com/images/I/51gr-kXd0DL._AC_.jpg",
-            "name": "Cello pen",
-            "price": "10",
-            "quantity": "1pcs"
-        },
-        {
-            "category": "Personal Care",
-            "description": "Shampoo",
-            "image_link": "https://d1s2zprapij148.cloudfront.net/image/cache/catalog/products/24637-200x200.jpg",
-            "name": "Dabur Vatika Shampoo",
-            "price": "165",
-            "quantity": "100 ml"
-        },
-        {
-            "category": "Personal Care",
-            "description": "Shampoo",
-            "image_link": "https://minutebag.com/wp-content/uploads/2018/11/patanjali-kesh-kanto-aloe-vera.gif",
-            "name": "Patanjali Shampoo",
-            "price": "125",
-            "quantity": "90 ml"
-        },
-        {
-            "category": "groceries",
-            "description": "Glucose",
-            "image_link": "https://www.bigbasket.com/media/uploads/p/l/20004286-2_6-parle-glucos-biscuits-parle-g.jpg",
-            "name": "Parle G",
-            "price": "15",
-            "quantity": "20 Pcs"
-        },
-        {
-            "category": "Household",
-            "description": "Groundnut Oil",
-            "image_link": "https://d1s2zprapij148.cloudfront.net/image/cache/catalog/products/24237-200x200.jpg",
-            "name": "Madhuri Groundnut Oil",
-            "price": "2300",
-            "quantity": "15 ltr"
-        },
-        {
-            "category": "Household",
-            "description": "Olive Oil",
-            "image_link": "https://d1s2zprapij148.cloudfront.net/image/cache/catalog/products/4785_3-200x200.jpg",
-            "name": "Del Monte Olive Oil",
-            "price": "2099",
-            "quantity": "5 ltr"
-        },
-        {
-            "category": "Beverages",
-            "description": "Green apple",
-            "image_link": "https://d1s2zprapij148.cloudfront.net/image/cache/catalog/products/24899-200x200.jpg",
-            "name": "Green Apple fresh juice",
-            "price": "10",
-            "quantity": "150 ml"
-        },
-        {
-            "category": "Beverages",
-            "description": "Mixed Fruit",
-            "image_link": "https://d1s2zprapij148.cloudfront.net/image/cache/catalog/products/15963-200x200.jpg",
-            "name": "B Natural Mixed Fruit Juice",
-            "price": "20",
-            "quantity": "250 ml"
-        },
-        {
-            "category": "Beverages",
-            "description": "Energy Drink",
-            "image_link": "https://d1s2zprapij148.cloudfront.net/image/cache/catalog/products/2805_9-200x200.jpg",
-            "name": "Bournvita",
-            "price": "369",
-            "quantity": "1 Kg"
-        },
-        {
-            "category": "Dairy and Bread",
-            "description": "Butter",
-            "image_link": "https://d1s2zprapij148.cloudfront.net/image/cache/catalog/products/24805-200x200.jpg",
-            "name": "Amul Butter",
-            "price": "500",
-            "quantity": "1 Kg"
-        },
-        {
-            "category": "Dairy and Bread",
-            "description": "Cheese",
-            "image_link": "https://d1s2zprapij148.cloudfront.net/image/cache/catalog/products/3146_1-200x200.jpg",
-            "name": "Amul Cheese",
-            "price": "200",
-            "quantity": "400 gm"
-        },
-        {
-            "category": "Dairy and Bread",
-            "description": "Veg",
-            "image_link": "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQO3VyTaBEG6Sd92gkp5c3ZclkxGogSv3rJLQ&usqp=CAU",
-            "name": "Veg Puff",
-            "price": "12",
-            "quantity": "1 Pc"
-        },
-        {
-            "category": "Dairy and Bread",
-            "description": "Veg and cheese",
-            "image_link": "https://api.time.com/wp-content/uploads/2019/04/impossible-whopper-burger-king.jpg?w=600&quality=85",
-            "name": "Veg Cheese Burger",
-            "price": "50",
-            "quantity": "1 Pc"
-        },
-        {
-            "category": "Dairy and Bread",
-            "description": "Butterscotch",
-            "image_link": "https://5.imimg.com/data5/OW/WE/MY-30494656/amul-realmilk-ice-cream-500x500.jpg",
-            "name": "Amul Icecream ",
-            "price": "20",
-            "quantity": "150 ml"
-        },
-        {
-            "category": "groceries",
-            "description": "cream and onion",
-            "image_link": "https://5.imimg.com/data5/HN/IB/MY-46895908/lays-cream-and-onion-chips-500x500.jpg",
-            "name": "Green Lays",
-            "price": "20",
-            "quantity": "50 grm"
-        }
-    ],
-    "Top products": [
-        {
-            "image_link": "https://www.amul.com/files/hits/amul-hits-1251.gif"
-        },
-        {
-            "image_link": "https://www.nestle.in/sites/g/files/pydnoa451/files/styles/brand_carousel_banner/public/Nestea-Banner-01-04.jpg?h=92576ed1&itok=cWGF_N6P"
-        },
-        {
-            "image_link": "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcT_hzm_9N-VPhDBQUCBjyAaOkRkPkN87klmyA&usqp=CAU"
-        },
-        {
-            "image_link": "https://i.pinimg.com/originals/36/49/96/3649964e25a90235f035b4a572c18f78.jpg"
-        }
-    ],
-    "email": "enzo_benzo@gmail.com",
-    "maps_url": "",
-    "name": "Enzo-Benzo",
-    "password": "d2d548838ef2c2eed01f5a1e6ece7dd4058500a0b98652bfae97e9c086481b9bceb72a8367688ed1575e07dbb981cb47917c702404455106c7de658250352bf4",
-    "plaintext_password": "enzobenzo2069",
-    "lattitude":"12.972489",
-    "longitude":"79.158870"
+  "products": [
+    {
+      "category": "stationary",
+      "description": "High quality",
+      "image_link": "https://res.sastasundar.com/incom/images/product/Classmate-Plain-Notebook-33-21-cm-1525773117-10044415.jpg",
+      "name": "Classmate Notebook",
+      "price": "39",
+      "quantity": "1pcs"
+    },
+    {
+      "category": "stationary",
+      "description": "Blue/Black",
+      "image_link": "https://images-na.ssl-images-amazon.com/images/I/51gr-kXd0DL._AC_.jpg",
+      "name": "Cello pen",
+      "price": "10",
+      "quantity": "1pcs"
+    },
+    {
+      "category": "Personal Care",
+      "description": "Shampoo",
+      "image_link": "https://d1s2zprapij148.cloudfront.net/image/cache/catalog/products/24637-200x200.jpg",
+      "name": "Dabur Vatika Shampoo",
+      "price": "165",
+      "quantity": "100 ml"
+    },
+    {
+      "category": "Personal Care",
+      "description": "Shampoo",
+      "image_link": "https://minutebag.com/wp-content/uploads/2018/11/patanjali-kesh-kanto-aloe-vera.gif",
+      "name": "Patanjali Shampoo",
+      "price": "125",
+      "quantity": "90 ml"
+    },
+    {
+      "category": "groceries",
+      "description": "Glucose",
+      "image_link": "https://www.bigbasket.com/media/uploads/p/l/20004286-2_6-parle-glucos-biscuits-parle-g.jpg",
+      "name": "Parle G",
+      "price": "15",
+      "quantity": "20 Pcs"
+    },
+    {
+      "category": "Household",
+      "description": "Groundnut Oil",
+      "image_link": "https://d1s2zprapij148.cloudfront.net/image/cache/catalog/products/24237-200x200.jpg",
+      "name": "Madhuri Groundnut Oil",
+      "price": "2300",
+      "quantity": "15 ltr"
+    },
+    {
+      "category": "Household",
+      "description": "Olive Oil",
+      "image_link": "https://d1s2zprapij148.cloudfront.net/image/cache/catalog/products/4785_3-200x200.jpg",
+      "name": "Del Monte Olive Oil",
+      "price": "2099",
+      "quantity": "5 ltr"
+    },
+    {
+      "category": "Beverages",
+      "description": "Green apple",
+      "image_link": "https://d1s2zprapij148.cloudfront.net/image/cache/catalog/products/24899-200x200.jpg",
+      "name": "Green Apple fresh juice",
+      "price": "10",
+      "quantity": "150 ml"
+    },
+    {
+      "category": "Beverages",
+      "description": "Mixed Fruit",
+      "image_link": "https://d1s2zprapij148.cloudfront.net/image/cache/catalog/products/15963-200x200.jpg",
+      "name": "B Natural Mixed Fruit Juice",
+      "price": "20",
+      "quantity": "250 ml"
+    },
+    {
+      "category": "Beverages",
+      "description": "Energy Drink",
+      "image_link": "https://d1s2zprapij148.cloudfront.net/image/cache/catalog/products/2805_9-200x200.jpg",
+      "name": "Bournvita",
+      "price": "369",
+      "quantity": "1 Kg"
+    },
+    {
+      "category": "Dairy and Bread",
+      "description": "Butter",
+      "image_link": "https://d1s2zprapij148.cloudfront.net/image/cache/catalog/products/24805-200x200.jpg",
+      "name": "Amul Butter",
+      "price": "500",
+      "quantity": "1 Kg"
+    },
+    {
+      "category": "Dairy and Bread",
+      "description": "Cheese",
+      "image_link": "https://d1s2zprapij148.cloudfront.net/image/cache/catalog/products/3146_1-200x200.jpg",
+      "name": "Amul Cheese",
+      "price": "200",
+      "quantity": "400 gm"
+    },
+    {
+      "category": "Dairy and Bread",
+      "description": "Veg",
+      "image_link": "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQO3VyTaBEG6Sd92gkp5c3ZclkxGogSv3rJLQ&usqp=CAU",
+      "name": "Veg Puff",
+      "price": "12",
+      "quantity": "1 Pc"
+    },
+    {
+      "category": "Dairy and Bread",
+      "description": "Veg and cheese",
+      "image_link": "https://api.time.com/wp-content/uploads/2019/04/impossible-whopper-burger-king.jpg?w=600&quality=85",
+      "name": "Veg Cheese Burger",
+      "price": "50",
+      "quantity": "1 Pc"
+    },
+    {
+      "category": "Dairy and Bread",
+      "description": "Butterscotch",
+      "image_link": "https://5.imimg.com/data5/OW/WE/MY-30494656/amul-realmilk-ice-cream-500x500.jpg",
+      "name": "Amul Icecream ",
+      "price": "20",
+      "quantity": "150 ml"
+    },
+    {
+      "category": "groceries",
+      "description": "cream and onion",
+      "image_link": "https://5.imimg.com/data5/HN/IB/MY-46895908/lays-cream-and-onion-chips-500x500.jpg",
+      "name": "Green Lays",
+      "price": "20",
+      "quantity": "50 grm"
+    }
+  ],
+  "Top products": [
+    {
+      "image_link": "https://www.amul.com/files/hits/amul-hits-1251.gif"
+    },
+    {
+      "image_link": "https://www.nestle.in/sites/g/files/pydnoa451/files/styles/brand_carousel_banner/public/Nestea-Banner-01-04.jpg?h=92576ed1&itok=cWGF_N6P"
+    },
+    {
+      "image_link": "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcT_hzm_9N-VPhDBQUCBjyAaOkRkPkN87klmyA&usqp=CAU"
+    },
+    {
+      "image_link": "https://i.pinimg.com/originals/36/49/96/3649964e25a90235f035b4a572c18f78.jpg"
+    }
+  ],
+  "email": "enzo_benzo@gmail.com",
+  "maps_url": "",
+  "name": "Enzo-Benzo",
+  "password": "d2d548838ef2c2eed01f5a1e6ece7dd4058500a0b98652bfae97e9c086481b9bceb72a8367688ed1575e07dbb981cb47917c702404455106c7de658250352bf4",
+  "plaintext_password": "enzobenzo2069",
+  "latitude": "12.972489",
+  "longitude": "79.158870"
 }

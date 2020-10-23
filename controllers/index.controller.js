@@ -58,6 +58,8 @@ module.exports = {
       if (a.length > 0)
         return {
           name: store.name,
+          latitude: store.latitude,
+          longitude: store.longitude,
           products: a,
         };
     });

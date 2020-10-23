@@ -9,7 +9,6 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 
-import CartContext from '../../../CartContext';
 import LandingPage from '../../LandingPage';
 import { Button } from '@material-ui/core';
 import Loading from '../../../Loading';

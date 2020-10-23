@@ -14,7 +14,7 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Grid from '@material-ui/core/Grid';
 
-export default function ShopSearch(props) {
+export default function ShopSearch() {
   const [products, setProducts] = React.useState([]);
   const query = new URLSearchParams(useLocation().search).get('q');
   // eslint-disable-next-line
@@ -39,11 +39,19 @@ export default function ShopSearch(props) {
                 <TableCell>Product</TableCell>
                 <TableCell>Shop</TableCell>
                 <TableCell>Price</TableCell>
+                <TableCell>Approx Distance</TableCell>
                 <TableCell>Add to Cart</TableCell>
               </TableRow>
               {products.map((product) => {
                 return product.products.map((prod) => {
-                  return <ProductCard shopname={product.name} product={prod} />;
+                  return (
+                    <ProductCard
+                      lat={product.latitude}
+                      lon={product.longitude}
+                      shopname={product.name}
+                      product={prod}
+                    />
+                  );
                 });
               })}
             </TableHead>

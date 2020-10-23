@@ -4,10 +4,30 @@ import PropTypes from 'prop-types';
 import TableCell from '@material-ui/core/TableCell';
 import TableRow from '@material-ui/core/TableRow';
 import { Button } from '@material-ui/core';
-import CartContext from '../../../CartContext';
+import LocationContext from '../../../LocationContext';
 
-const ProductCard = ({ product, shopname }) => {
-  // const { cart, updateCart } = React.useContext(CartContext);
+function degreesToRadians(degrees) {
+  return (degrees * Math.PI) / 180;
+}
+
+function distance(lat1, lon1, lat2, lon2) {
+  var earthRadiusKm = 6371;
+
+  var dLat = degreesToRadians(lat2 - lat1);
+  var dLon = degreesToRadians(lon2 - lon1);
+
+  lat1 = degreesToRadians(lat1);
+  lat2 = degreesToRadians(lat2);
+
+  var a =
+    Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+    Math.sin(dLon / 2) * Math.sin(dLon / 2) * Math.cos(lat1) * Math.cos(lat2);
+  var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+  return earthRadiusKm * c;
+}
+
+const ProductCard = ({ product, shopname, lat, lon }) => {
+  const { loc } = React.useContext(LocationContext);
   var cart = Cookies.getJSON('cart');
   const submit = (e) => {
     e.preventDefault();
@@ -20,6 +40,7 @@ const ProductCard = ({ product, shopname }) => {
     console.log(cart);
     Cookies.set('cart', cart);
   };
+  console.log('lat', lat, 'lon', lon, loc);
   return (
     <TableRow>
       <TableCell>
@@ -33,6 +54,12 @@ const ProductCard = ({ product, shopname }) => {
       <TableCell>{product.name}</TableCell>
       <TableCell> {shopname} </TableCell>
       <TableCell> {product.price} </TableCell>
+      <TableCell>
+        {' '}
+        {(distance(lat, lon, loc.latitude, loc.longitude) * 1.2).toFixed(
+          2
+        )} KM{' '}
+      </TableCell>
       <TableCell>
         <form onSubmit={submit}>
           <Button variant="contained" color="primary" type="submit">

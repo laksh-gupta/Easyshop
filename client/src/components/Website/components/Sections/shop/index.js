@@ -117,15 +117,15 @@ const ShopComp = (props) => {
       <div className={classes.main}>
         <Grid container>
           <Grid item sm={6}>
-            <Map link={data.maps_link} />
+            <Map lat={data.latitude} lon={data.longitude} />
           </Grid>
-          <Grid style={{ padding: '40px' }} item sm={6}>
+          {/* <Grid style={{ padding: '40px' }} item sm={6}>
             <Typography>Name: All Maart</Typography>
             <Typography>
               Address: Gate 2, VIT, Vellore, Tamil Nadu - 632014
             </Typography>
             <Typography>Contact: +91 9090909090</Typography>
-          </Grid>
+          </Grid> */}
         </Grid>
       </div>
     </div>

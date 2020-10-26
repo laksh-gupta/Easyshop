@@ -40,6 +40,7 @@ export default function ShopSearch() {
                 <TableCell>Shop</TableCell>
                 <TableCell>Price</TableCell>
                 <TableCell>Approx Distance</TableCell>
+                <TableCell>Status</TableCell>
                 <TableCell>Add to Cart</TableCell>
               </TableRow>
               {products.map((product) => {

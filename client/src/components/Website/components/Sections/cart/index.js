@@ -36,9 +36,14 @@ export default function Cart(props) {
     var doc = new jsPDF();
     const tableColumn = ['Name', 'Price', 'Shop', 'Address'];
     var sum = 0;
-    const tableRows = cart.map((item) => {
+    const tableRows = cart.cart.map((item) => {
       sum += item.price;
-      return [item.name, item.price, item.shop, 'lol'];
+      return [
+        item.name,
+        item.price,
+        item.shop,
+        `https://www.google.co.in/maps/@${item.latitude},${item.longitude},16z`,
+      ];
     });
 
     tableRows.push([`Approximate shopping expendicture: Rs. ${sum}`]);

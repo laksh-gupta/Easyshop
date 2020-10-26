@@ -35,6 +35,8 @@ const ProductCard = ({ product, shopname, lat, lon }) => {
       name: product.name,
       image_link: product.image_link,
       price: product.price,
+      longitude: lon,
+      latitude: lat,
       shop: shopname,
     });
     console.log(cart);
@@ -59,6 +61,13 @@ const ProductCard = ({ product, shopname, lat, lon }) => {
         {(distance(lat, lon, loc.latitude, loc.longitude) * 1.2).toFixed(
           2
         )} KM{' '}
+      </TableCell>
+      <TableCell>
+        {product.quantity < 10 ? (
+          <div style={{ color: 'red' }}>Less than 10 left</div>
+        ) : (
+          <div style={{ color: 'green' }}>Available</div>
+        )}
       </TableCell>
       <TableCell>
         <form onSubmit={submit}>

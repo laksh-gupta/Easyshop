@@ -3,6 +3,13 @@ require('dotenv').config;
 const db = require('../models/firebaseSDK').db;
 const jwt = require('jsonwebtoken');
 const check = require('../helpers/check');
+
+const restruct = async (stores, callback) => {
+  const a = stores.map((store) => store.products);
+  const b = a.flat(1);
+  return callback(b);
+};
+
 module.exports = {
   login: (req, res) => {
     const { email, password } = req.body;
@@ -57,16 +64,22 @@ module.exports = {
       });
       if (a.length > 0)
         return {
-          name: store.name,
-          latitude: store.latitude,
-          longitude: store.longitude,
-          products: a,
+          products: a.map((item) => {
+            return Object.assign(item, {
+              shopname: store.name,
+              latitude: store.latitude,
+              longitude: store.longitude,
+            });
+          }),
         };
     });
 
     var newFiltered = filtered.filter((item) => {
       return item;
     });
-    res.send(newFiltered);
+    restruct(newFiltered, (structured) => {
+      console.log(structured);
+      res.send(structured);
+    });
   },
 };

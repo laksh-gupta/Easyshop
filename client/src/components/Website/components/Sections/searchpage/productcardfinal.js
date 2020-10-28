@@ -26,7 +26,7 @@ function distance(lat1, lon1, lat2, lon2) {
   return earthRadiusKm * c;
 }
 
-const ProductCard = ({ product, shopname, lat, lon }) => {
+const ProductCard = ({ product }) => {
   const { loc } = React.useContext(LocationContext);
   var cart = Cookies.getJSON('cart');
   const submit = (e) => {
@@ -35,14 +35,14 @@ const ProductCard = ({ product, shopname, lat, lon }) => {
       name: product.name,
       image_link: product.image_link,
       price: product.price,
-      longitude: lon,
-      latitude: lat,
-      shop: shopname,
+      longitude: product.longitude,
+      latitude: product.latitude,
+      shop: product.shopname,
     });
     console.log(cart);
     Cookies.set('cart', cart);
   };
-  console.log('lat', lat, 'lon', lon, loc);
+  // console.log('lat', product.latitude, 'lon', product.longitude, loc);
   return (
     <TableRow>
       <TableCell>
@@ -54,13 +54,19 @@ const ProductCard = ({ product, shopname, lat, lon }) => {
         />
       </TableCell>
       <TableCell>{product.name}</TableCell>
-      <TableCell> {shopname} </TableCell>
+      <TableCell> {product.shopname} </TableCell>
       <TableCell> {product.price} </TableCell>
       <TableCell>
         {' '}
-        {(distance(lat, lon, loc.latitude, loc.longitude) * 1.2).toFixed(
-          2
-        )} KM{' '}
+        {(
+          distance(
+            product.latitude,
+            product.longitude,
+            loc.latitude,
+            loc.longitude
+          ) * 1.2
+        ).toFixed(2)}{' '}
+        KM{' '}
       </TableCell>
       <TableCell>
         {product.quantity < 10 ? (

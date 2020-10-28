@@ -5,6 +5,7 @@ export default function Map({ lat, lon }) {
   return (
     <Container style={{ marginLeft: '10vw' }}>
       <iframe
+        title="Map"
         style={{ borderRadius: '20px' }}
         height={350}
         width={350}

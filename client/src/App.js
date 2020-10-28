@@ -7,8 +7,8 @@ import HomePage from './components/Website/app';
 var hist = createBrowserHistory();
 
 function App() {
-  var cart = { cart: [] };
   React.useEffect(() => {
+    var cart = { cart: [] };
     if (!Cookies.get('cart')) {
       Cookies.set('cart', cart);
     }

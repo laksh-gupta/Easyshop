@@ -13,22 +13,11 @@ import GridContainer from '../../../../utils/Grid/GridContainer';
 import GridItem from '../../../../utils/Grid/GridItem';
 import NavPills from '../../../../utils/NavPills/NavPills';
 
-import studio1 from '../../../../utils/assets/img/examples/studio-1.jpg';
-import studio2 from '../../../../utils/assets/img/examples/studio-2.jpg';
-import studio3 from '../../../../utils/assets/img/examples/studio-3.jpg';
-import studio4 from '../../../../utils/assets/img/examples/studio-4.jpg';
-import studio5 from '../../../../utils/assets/img/examples/studio-5.jpg';
-import work1 from '../../../../utils/assets/img/examples/olu-eletu.jpg';
-import work2 from '../../../../utils/assets/img/examples/clem-onojeghuo.jpg';
-import work3 from '../../../../utils/assets/img/examples/cynthia-del-rio.jpg';
-import work4 from '../../../../utils/assets/img/examples/mariya-georgieva.jpg';
-import work5 from '../../../../utils/assets/img/examples/clem-onojegaw.jpg';
-
 import styles from '../../../../utils/assets/jss/material-kit-react/views/profilePage.js';
 
 const useStyles = makeStyles(styles);
 
-export default function ProfilePage(props) {
+export default function ProfilePage() {
   const classes = useStyles();
   const navImageClasses = classNames(classes.imgRounded, classes.imgGallery);
 

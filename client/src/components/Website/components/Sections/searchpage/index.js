@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react';
+import React from 'react';
 import axios from 'axios';
 import server from '../../../../../config';
 
@@ -84,12 +84,12 @@ export default function ShopSearch() {
       setProducts(a);
       return;
     }
-    var a = products
-      .sort((a, b) => {
-        return a[e.target.id] >= b[e.target.id] ? 1 : -1;
+    var a_ = products
+      .sort((a__, b) => {
+        return a__[e.target.id] >= b[e.target.id] ? 1 : -1;
       })
       .map((item) => item);
-    setProducts(a);
+    setProducts(a_);
   };
   // console.log(products);
   // console.log(loc);

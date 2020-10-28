@@ -75,7 +75,12 @@ export default function Cart(props) {
                 return (
                   <TableRow>
                     <TableCell>
-                      <img height="150px" width="150px" src={item.image_link} />
+                      <img
+                        height="150px"
+                        width="150px"
+                        alt={item.name}
+                        src={item.image_link}
+                      />
                     </TableCell>
                     <TableCell>{item.name}</TableCell>
                     <TableCell> {item.shop} </TableCell>

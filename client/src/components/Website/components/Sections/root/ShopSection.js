@@ -1,11 +1,9 @@
 import React from 'react';
-import PropTypes, { array } from 'prop-types';
+import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import ButtonBase from '@material-ui/core/ButtonBase';
 import Container from '@material-ui/core/Container';
 import Typography from '../../../../utils/assets/jss/material-kit-react/components/typography';
-import { Link } from 'react-router-dom';
-import { Redirect } from 'react-router';
 import { useHistory } from 'react-router-dom';
 const styles = (theme) => ({
   root: {

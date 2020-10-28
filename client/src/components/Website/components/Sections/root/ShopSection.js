@@ -1,10 +1,12 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import PropTypes, { array } from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import ButtonBase from '@material-ui/core/ButtonBase';
 import Container from '@material-ui/core/Container';
 import Typography from '../../../../utils/assets/jss/material-kit-react/components/typography';
-
+import { Link } from 'react-router-dom';
+import { Redirect } from 'react-router';
+import { useHistory } from 'react-router-dom';
 const styles = (theme) => ({
   root: {
     marginTop: theme.spacing(8),
@@ -86,6 +88,7 @@ const styles = (theme) => ({
 });
 function ProductCategories(props) {
   const { classes } = props;
+  const history = useHistory();
 
   const images = [
     {
@@ -93,26 +96,31 @@ function ProductCategories(props) {
         'https://i.ibb.co/PWqbQR0/yellow-copy-space-with-backpack-full-school-supplies-23-2148224289.jpg',
       title: 'Shree Ram Stationary',
       width: '20%',
+      href: '/shop/d67d825418',
     },
     {
       url: 'https://i.ibb.co/h26JKHC/vegetarian-evolution-1.jpg',
       title: 'All Fruit Mart',
       width: '20%',
+      href: '/shop/09de02fe79',
     },
     {
       url: 'https://i.ibb.co/mBZpVVT/images.jpg',
-      title: 'Bestro Coffee',
+      title: 'Balaji',
       width: '20%',
+      href: '/shop/341ef2961',
     },
     {
       url: 'https://i.ibb.co/1r008vd/gourmet-burger-1024x666.jpg',
       title: 'Enzo & Benzo',
       width: '20%',
+      href: '/shop/5ae462abbb',
     },
     {
       url: 'https://i.ibb.co/yyb9PYw/01-Grocery1-jumbo-v2.jpg',
       title: 'All Mart',
       width: '20%',
+      href: '/shop/3ac5139270',
     },
   ];
 
@@ -132,6 +140,7 @@ function ProductCategories(props) {
             style={{
               width: image.width,
             }}
+            onClick={() => history.push(image.href)}
           >
             <div
               className={classes.imageSrc}

@@ -37,7 +37,7 @@ export default function Cart(props) {
     const tableColumn = ['Name', 'Price', 'Shop', 'Address'];
     var sum = 0;
     const tableRows = cart.cart.map((item) => {
-      sum += item.price;
+      sum += parseInt(item.price);
       return [
         item.name,
         item.price,

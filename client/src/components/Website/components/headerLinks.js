@@ -267,13 +267,14 @@ const Quick = ({ cart }) => {
 
 export default function HeaderLinks(props) {
   const { currentUser } = React.useContext(AuthContext);
-  const history = useHistory();
   const classes = useStyles();
 
   const submit = (e) => {
     console.log(e.target.value);
     if (e.keyCode === 13) {
-      history.push(`/search/?q=${e.target.value.split(' ').join('+')}`);
+      window.location.href = `/search/?q=${e.target.value
+        .split(' ')
+        .join('+')}`;
     }
   };
 

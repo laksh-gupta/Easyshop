@@ -106,7 +106,7 @@ function ProductCategories(props) {
       url: 'https://i.ibb.co/mBZpVVT/images.jpg',
       title: 'Balaji',
       width: '20%',
-      href: '/shop/341ef2961',
+      href: '/shop/e341ef2961',
     },
     {
       url: 'https://i.ibb.co/1r008vd/gourmet-burger-1024x666.jpg',

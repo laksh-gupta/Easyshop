@@ -21,7 +21,9 @@ module.exports = {
       .doc(storeid)
       .get()
       .then((data) => {
-        res.status(200).send(data.data());
+        var res_ = data.data();
+        delete res_['password'];
+        res.status(200).send(res_);
       });
   },
   updateInventory: async (req, res) => {

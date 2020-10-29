@@ -156,7 +156,7 @@ const ProductCard = ({ className, product, ...rest }) => {
         <Grid container justify="space-between" spacing={2}>
           <Grid className={classes.statsItem} item>
             <form onSubmit={submit1}>
-              <input name="name" value={product.name} hidden />
+              <input readOnly name="name" value={product.name} hidden />
               <Button type="submit" variant="contained" color="primary">
                 <Typography color="grey" display="inline" variant="body2">
                   +1
@@ -164,7 +164,7 @@ const ProductCard = ({ className, product, ...rest }) => {
               </Button>
             </form>
             <form onSubmit={submit2}>
-              <input name="name" value={product.name} hidden />
+              <input readOnly name="name" value={product.name} hidden />
               <Button type="submit" variant="contained" color="primary">
                 <Typography color="grey" display="inline" variant="body2">
                   -1

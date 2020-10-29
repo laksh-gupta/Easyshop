@@ -6,5 +6,6 @@ const verifyJWT = require('../helpers/verifyJWT');
 router.get('/', verifyJWT, store.getInventory);
 router.get('/:id', store.getProducts);
 router.post('/update', verifyJWT, decrypt_, store.updateInventory);
+router.post('/addinventory', verifyJWT, decrypt_, store.addInventory);
 
 module.exports = router;

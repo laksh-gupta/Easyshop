@@ -54,4 +54,27 @@ module.exports = {
     );
     res.status(200).send('success');
   },
+  addInventory: async (req, res) => {
+    const uid = req.authorizedUser.data.uid;
+
+    req.body.quantity = parseInt(req.body.quantity);
+
+    var prods = await db
+      .collection('users')
+      .doc(uid)
+      .get()
+      .then((data) => data.data().products);
+
+    prods.push(req.body);
+
+    await db.collection('users').doc(uid).set(
+      {
+        products: prods,
+      },
+      {
+        merge: true,
+      }
+    );
+    res.status(200).send('success');
+  },
 };

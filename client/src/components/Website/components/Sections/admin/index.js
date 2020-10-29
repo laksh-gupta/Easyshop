@@ -22,6 +22,7 @@ import TextField from '@material-ui/core/TextField';
 import Link from '@material-ui/core/Link';
 import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
 import Typography from '@material-ui/core/Typography';
+import encrypt_ from '../../../../../helpers/jsonEncrypt';
 const useStyles = makeStyles((theme) => ({
   root: {
     backgroundColor: theme.palette.background.dark,
@@ -83,7 +84,6 @@ export default function AdminPanel() {
         setProducts((products) => products.concat(res_.data));
       });
   }, []);
-  console.log(products);
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -91,6 +91,45 @@ export default function AdminPanel() {
 
   const handleClose = () => {
     setOpen(false);
+  };
+
+  const submit = (e) => {
+    e.preventDefault();
+    const {
+      category,
+      name,
+      price,
+      quantity,
+      description,
+      image_link,
+    } = e.target.elements;
+
+    axios
+      .post(
+        server + '/store/addinventory',
+        {
+          payload: encrypt_({
+            category: category.value,
+            name: name.value,
+            price: price.value,
+            quantity: quantity.value,
+            description: description.value,
+            image_link: image_link.value,
+          }),
+        },
+        {
+          headers: {
+            authorization: currentUser,
+          },
+        }
+      )
+      .then((res_) => {
+        console.log(res_.data);
+        if (res_.data === 'success') {
+          alert('Product added successfully');
+          window.location.reload();
+        }
+      });
   };
   return currentUser ? (
     <LandingPage>
@@ -120,20 +159,17 @@ export default function AdminPanel() {
                 <AddShoppingCartIcon />
               </Avatar>
               <Typography component="h1" variant="h5">
-                add prodcut to your inventory
+                Add New Product
               </Typography>
-              <form className={classes1.form} noValidate>
+              <form onSubmit={submit} className={classes1.form}>
                 <Grid container spacing={2}>
                   <Grid item xs={12} sm={6}>
                     <TextField
-                      autoComplete="fname"
-                      name="firstName"
+                      name="category"
                       variant="outlined"
                       required
                       fullWidth
-                      id="firstName"
                       label="Category"
-                      autoFocus
                     />
                   </Grid>
                   <Grid item xs={12} sm={6}>
@@ -143,20 +179,16 @@ export default function AdminPanel() {
                       fullWidth
                       id="lastName"
                       label="Name"
-                      name="lastName"
-                      autoComplete="lname"
+                      name="name"
                     />
                   </Grid>
                   <Grid item xs={12} sm={6}>
                     <TextField
-                      autoComplete="fname"
-                      name="firstName"
+                      name="price"
                       variant="outlined"
                       required
                       fullWidth
-                      id="firstName"
                       label="Price"
-                      autoFocus
                     />
                   </Grid>
                   <Grid item xs={12} sm={6}>
@@ -164,10 +196,9 @@ export default function AdminPanel() {
                       variant="outlined"
                       required
                       fullWidth
-                      id="lastName"
                       label="quantity"
-                      name="lastName"
-                      autoComplete="lname"
+                      name="quantity"
+                      type="number"
                     />
                   </Grid>
                   <Grid item xs={12}>
@@ -177,8 +208,7 @@ export default function AdminPanel() {
                       fullWidth
                       id="email"
                       label="Description"
-                      name="email"
-                      autoComplete="email"
+                      name="description"
                     />
                   </Grid>
                   <Grid item xs={12}>
@@ -186,11 +216,9 @@ export default function AdminPanel() {
                       variant="outlined"
                       required
                       fullWidth
-                      name="password"
-                      label="image Link"
-                      type="password"
+                      name="image_link"
+                      label="Image Link"
                       id="password"
-                      autoComplete="current-password"
                     />
                   </Grid>
                 </Grid>
@@ -201,15 +229,8 @@ export default function AdminPanel() {
                   color="primary"
                   className={classes1.submit}
                 >
-                  Save the item
+                  Add
                 </Button>
-                <Grid container justify="flex-end">
-                  <Grid item>
-                    <Link href="#" variant="body2">
-                      Add another product
-                    </Link>
-                  </Grid>
-                </Grid>
               </form>
             </div>
           </Container>

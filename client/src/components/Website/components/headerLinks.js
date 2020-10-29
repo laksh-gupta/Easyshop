@@ -26,7 +26,7 @@ import {
 } from '@material-ui/core';
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 // react components for routing our app without refresh
-import { Link, useHistory } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import Typography from './../../utils/assets/jss/material-kit-react/components/typography';
 import CustomDropdown from './../../utils/CustomDropdown/CustomDropdown';
 import server from '../../../config';
@@ -265,7 +265,7 @@ const Quick = ({ cart }) => {
   );
 };
 
-export default function HeaderLinks(props) {
+export default function HeaderLinks() {
   const { currentUser } = React.useContext(AuthContext);
   const classes = useStyles();
 

@@ -14,6 +14,8 @@ const store = require('./routes/store.route');
 // const users = require('./routes/users.routes');
 const verifyJWT = require('./helpers/verifyJWT');
 
+console.log(generatePass('nimish', 13));
+
 app.use(cors());
 app.use(express.json());
 app.use(

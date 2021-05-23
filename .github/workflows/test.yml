@@ -15,8 +15,8 @@ jobs:
       - uses: actions/checkout@v1
       - name: nodeJS unit test
         run: |
-          npm install
-          npm i -D mocha supertest
+          #npm install
+          #npm i -D mocha supertest
           npm run test
 
       - uses: actions/checkout@v1
@@ -25,9 +25,9 @@ jobs:
           CI: false
           NODE_ENV: "development"
         run: |
-          cd client
-          npm install
-          npm run test
+          #cd client
+          #npm install
+          #npm run test
           ls
 
   deploy:
@@ -38,15 +38,15 @@ jobs:
       - uses: actions/checkout@v2
       - name: Deploy
         run: |
-          sudo snap install --classic heroku
-          cat >~/.netrc <<EOF
-          machine api.heroku.com
-            login ${{ secrets.EMAIL }}
-            password ${{ secrets.API_KEY }}
-          machine git.heroku.com
-            login ${{ secrets.EMAIL }}
-            password ${{ secrets.API_KEY }}
-          EOF
+          #sudo snap install --classic heroku
+          #cat >~/.netrc <<EOF
+          #machine api.heroku.com
+          #  login ${{ secrets.EMAIL }}
+          #  password ${{ secrets.API_KEY }}
+          #machine git.heroku.com
+          #  login ${{ secrets.EMAIL }}
+          #  password ${{ secrets.API_KEY }}
+          #EOF
           echo "done"
           git remote -v
           git remote add heroku https://git.heroku.com/easyshopindia.git

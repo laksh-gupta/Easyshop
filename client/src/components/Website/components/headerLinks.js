@@ -87,7 +87,7 @@ const Auth = ({ history }) => {
         })
         .then((res) => {
           console.log(res.data);
-          window.localStorage.setItem('token', res.data);
+          window.localStorage.setItem('session', JSON.stringify(res.data));
           window.location.href = '/';
         })
         .catch((err) => {

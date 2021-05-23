@@ -3,6 +3,7 @@ require('dotenv').config;
 const db = require('../models/firebaseSDK').db;
 const jwt = require('jsonwebtoken');
 const check = require('../helpers/check');
+const exp = require('../helpers/modularExp');
 
 const restruct = async (stores, callback) => {
   const a = stores.map((store) => store.products);
@@ -35,7 +36,15 @@ module.exports = {
                 console.log(err);
                 return res.status(503).send(new Error('error'));
               }
-              return res.status(200).send(token);
+              const lucky = [...res_.uid].reduce((sum, char) => sum + +char, 0);
+
+              const serverPub = exp(17, lucky, 541);
+
+              return res.status(200).send({
+                timestamp: Date.now(),
+                token,
+                serverPub,
+              });
             }
           );
         } else {

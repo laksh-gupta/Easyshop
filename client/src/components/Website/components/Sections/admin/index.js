@@ -19,10 +19,14 @@ import Avatar from '@material-ui/core/Avatar';
 
 import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
-import Link from '@material-ui/core/Link';
 import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
 import Typography from '@material-ui/core/Typography';
 import encrypt_ from '../../../../../helpers/jsonEncrypt';
+import generatePriPub from '../../../../../helpers/clientPriPub';
+import generateCipher from '../../../../../helpers/encryptor';
+import generateHmac from '../../../../../helpers/generateMAC';
+import generatePass from 'pr-pass';
+
 const useStyles = makeStyles((theme) => ({
   root: {
     backgroundColor: theme.palette.background.dark,
@@ -77,7 +81,7 @@ export default function AdminPanel() {
     axios
       .get(server + '/store', {
         headers: {
-          authorization: currentUser,
+          authorization: JSON.parse(currentUser).token,
         },
       })
       .then((res_) => {
@@ -95,31 +99,42 @@ export default function AdminPanel() {
 
   const submit = (e) => {
     e.preventDefault();
-    const {
-      category,
-      name,
-      price,
-      quantity,
-      description,
-      image_link,
-    } = e.target.elements;
+    const { category, name, price, quantity, description, image_link } =
+      e.target.elements;
 
+    const { clientPri, clientPub, sharedKey } = generatePriPub(
+      JSON.parse(currentUser).serverPub
+    );
+    const timestamp = Date.now();
+    console.log(clientPri, clientPub, sharedKey);
+
+    const payload = generateCipher(
+      {
+        category: category.value,
+        name: name.value,
+        price: price.value,
+        quantity: quantity.value,
+        description: description.value,
+        image_link: image_link.value,
+        timestamp,
+      },
+      sharedKey,
+      JSON.parse(currentUser).token
+    );
+    const hmac = generateHmac(
+      payload,
+      generatePass(JSON.parse(currentUser).token, sharedKey)
+    );
     axios
       .post(
         server + '/store/addinventory',
         {
-          payload: encrypt_({
-            category: category.value,
-            name: name.value,
-            price: price.value,
-            quantity: quantity.value,
-            description: description.value,
-            image_link: image_link.value,
-          }),
+          payload: `${payload}|${hmac}`,
         },
         {
           headers: {
-            authorization: currentUser,
+            authorization: JSON.parse(currentUser).token,
+            publickey: clientPub,
           },
         }
       )

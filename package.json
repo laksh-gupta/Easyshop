@@ -6,7 +6,8 @@
   "scripts": {
     "test": "mocha ./unittest/* --exit",
     "start": "node server.js",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
+    "git": "git clone https://github.com/sudonims/PR-Pass.git; cd PR-Pass/npm; npm install; npm link pr-pass;",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm link pr-pass && npm link pr-pass --prefix client && npm run build --prefix client"
   },
   "author": "",
   "license": "MIT",

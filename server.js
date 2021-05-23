@@ -14,7 +14,7 @@ const store = require('./routes/store.route');
 // const users = require('./routes/users.routes');
 const verifyJWT = require('./helpers/verifyJWT');
 
-console.log(generatePass('nimish', 13));
+// console.log(generatePass('nimish', 13));
 
 app.use(cors());
 app.use(express.json());
@@ -38,6 +38,7 @@ app.use(limiter);
 // app.use('/users', users);
 app.use('/', index);
 app.use('/store', store);
+
 app.get('/test', (req, res) => {
   res.send('success');
 });

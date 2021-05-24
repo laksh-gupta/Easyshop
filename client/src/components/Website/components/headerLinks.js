@@ -191,7 +191,7 @@ const Logged = () => {
         </Link>,
         <div
           onClick={async () => {
-            window.localStorage.setItem('token', '');
+            window.localStorage.setItem('session', '');
             window.location.reload();
           }}
         >

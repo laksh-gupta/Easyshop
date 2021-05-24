@@ -17,6 +17,10 @@ import GetAppIcon from '@material-ui/icons/GetApp';
 import { grayColor } from '../../../../utils/assets/jss/dispplay-react';
 import { AuthContext } from '../../../helper';
 import encrypt_ from '../../../../../helpers/jsonEncrypt';
+import generatePriPub from '../../../../../helpers/clientPriPub';
+import generateCipher from '../../../../../helpers/encryptor';
+import generateHmac from '../../../../../helpers/generateMAC';
+import generatePass from 'pr-pass';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -64,19 +68,39 @@ const ProductCard = ({ className, product, ...rest }) => {
   const submit1 = (e) => {
     e.preventDefault();
     const { name } = e.target.elements;
+    console.log(JSON.parse(currentUser));
     console.log(name.value);
+    const { clientPri, clientPub, sharedKey } = generatePriPub(
+      JSON.parse(currentUser).serverPub
+    );
+    const timestamp = Date.now();
+    console.log(clientPri, clientPub, sharedKey);
+
+    const payload = generateCipher(
+      {
+        prod: name.value,
+        operation: 1,
+        timestamp,
+      },
+      sharedKey,
+      JSON.parse(currentUser).token
+    );
+
+    const hmac = generateHmac(
+      payload,
+      generatePass(JSON.parse(currentUser).token, sharedKey)
+    );
+
     axios
       .post(
         server + '/store/update',
         {
-          payload: encrypt_({
-            prod: name.value,
-            operation: 1,
-          }),
+          payload: `${payload}|${hmac}`,
         },
         {
           headers: {
-            authorization: currentUser,
+            authorization: JSON.parse(currentUser).token,
+            publickey: clientPub,
           },
         }
       )
@@ -95,18 +119,40 @@ const ProductCard = ({ className, product, ...rest }) => {
   const submit2 = (e) => {
     e.preventDefault();
     const { name } = e.target.elements;
+    console.log(JSON.parse(currentUser));
+    console.log(name.value);
+    const { clientPri, clientPub, sharedKey } = generatePriPub(
+      JSON.parse(currentUser).serverPub
+    );
+    const timestamp = Date.now();
+    console.log(clientPri, clientPub, sharedKey);
+
+    const payload = generateCipher(
+      {
+        prod: name.value,
+        operation: -1,
+        timestamp,
+      },
+      sharedKey,
+      JSON.parse(currentUser).token
+    );
+
+    const hmac = generateHmac(
+      payload,
+      generatePass(JSON.parse(currentUser).token, sharedKey)
+    );
+
     axios
       .post(
         server + '/store/update',
         {
-          payload: encrypt_({
-            prod: name.value,
-            operation: -1,
-          }),
+          payload: `${payload}|${hmac}`,
+          // payload: { prod: name.value, operation: -1 },
         },
         {
           headers: {
-            authorization: currentUser,
+            authorization: JSON.parse(currentUser).token,
+            publickey: clientPub,
           },
         }
       )

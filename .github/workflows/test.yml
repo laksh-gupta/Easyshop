@@ -39,14 +39,14 @@ jobs:
       - name: Deploy
         run: |
           #sudo snap install --classic heroku
-          #cat >~/.netrc <<EOF
-          #machine api.heroku.com
-          #  login ${{ secrets.EMAIL }}
-          #  password ${{ secrets.API_KEY }}
-          #machine git.heroku.com
-          #  login ${{ secrets.EMAIL }}
-          #  password ${{ secrets.API_KEY }}
-          #EOF
+          cat >~/.netrc <<EOF
+          machine api.heroku.com
+           login ${{ secrets.EMAIL }}
+           password ${{ secrets.API_KEY }}
+          machine git.heroku.com
+           login ${{ secrets.EMAIL }}
+           password ${{ secrets.API_KEY }}
+          EOF
           echo "done"
           git remote -v
           git remote add heroku https://git.heroku.com/easyshopindia.git
